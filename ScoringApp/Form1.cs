@@ -14,13 +14,25 @@ namespace ScoringApp
     {
         //
         int Team1Goal = 0, Team2Goal = 0;
-       
+
         int min = 0, sec = 0;
 
         //for Time Plenty
-        int T1min = 0, T1sec = 0;
-        int T2min = 0, T2sec = 0;
+        int T1min = 1, T1sec = 60;
+        int T2min = 1, T2sec = 60;
 
+        //Timeout
+        bool team1Timeout = false, team2Timeout = false;
+        private void CheckTimeout()
+        {
+            if (team1Timeout == true && team2Timeout == true)
+            {
+                StopWatch.Stop();
+                Team1TimePlentyTimer.Stop();
+                Team2TimePlentyTimer.Stop();
+
+            }
+        }
 
         public void UpdateGoal()
         {
@@ -78,11 +90,15 @@ namespace ScoringApp
         private void btn_TopTeam1Timeout_Click(object sender, EventArgs e)
         {
             btn_BottomTeam1Timeout.Visible = true;
+            team1Timeout = true;
+            CheckTimeout();
         }
 
         private void btn_TopTeam2Timeout_Click(object sender, EventArgs e)
         {
             btn_BottomTeam2Timeout.Visible = true;
+            team2Timeout = true;
+            CheckTimeout();
 
         }
         private void btn_Team1TimePlenty_Click(object sender, EventArgs e)
@@ -102,8 +118,11 @@ namespace ScoringApp
             btn_Team1StopPlenty.Visible = false;
 
             Team1TimePlentyTimer.Stop();
-            T1min = 0;
-            T1sec = 0;
+            T1min = 1;
+            T1sec = 60;
+            lab_Team1TopTimePlenty.Text = "02 : 00";
+            lab_Team1BottomTimePlenty.Text = "02 : 00";
+
 
         }
 
@@ -122,71 +141,142 @@ namespace ScoringApp
             pnl_TopTeam2TImePlenty.Visible = false;
             btn_Team2StopPlenty.Visible = false;
 
-            Team2TimePlentyTimer.Stop();
-            T2min = 0;
-            T2sec = 0;
+            Team1TimePlentyTimer.Stop();
+            T2min = 1;
+            T2sec = 60;
+            lab_Team2TopTimePlenty.Text = "02 : 00";
+            lab_Team2BottomTimePlenty.Text = "02 : 00";
+        }
+
+        private void btn_BottomTeam1Timeout_Click(object sender, EventArgs e)
+        {
+            btn_BottomTeam1Timeout.Visible = false;
+            team1Timeout = false;
+        }
+
+        private void btn_BottomTeam2Timeout_Click(object sender, EventArgs e)
+        {
+            btn_BottomTeam2Timeout.Visible = false;
+            team2Timeout = false;
+        }
+
+        private void panel8_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btn_StartWatchFrom30_Click(object sender, EventArgs e)
+        {
+            lab_TopClock.Text = "00  :  00";
+            lab_BottomClock.Text = "00  :  00";
+            min = 30;
+            sec = 30;
+
+        }
+
+        private void btn_Reset_Click(object sender, EventArgs e)
+        {
+            lab_TopClock.Text = "00  :  00";
+            lab_BottomClock.Text = "00  :  00";
+            min = 0;
+            sec = 0;
+        }
+
+        private void btn_IncMin_Click(object sender, EventArgs e)
+        {
+            if (min <= 99)
+            {
+                min++;
+                lab_BottomClock.Text = min.ToString("#00") + " : " + sec.ToString("#00");
+                lab_TopClock.Text = min.ToString("#00") + "  :  " + sec.ToString("#00");
+            }
+            
+        }
+
+        private void btn_IncSec_Click(object sender, EventArgs e)
+        {
+            if (sec<59)
+            {
+                sec++;
+            }
+            else
+            {
+                min++;
+                sec = 0;
+            }
+            lab_BottomClock.Text = min.ToString("#00") + " : " + sec.ToString("#00");
+            lab_TopClock.Text = min.ToString("#00") + "  :  " + sec.ToString("#00");
+        }
+
+        private void btn_DecMin_Click(object sender, EventArgs e)
+        {
+            if (min>0)
+            {
+                min--;
+            }
+            lab_BottomClock.Text = min.ToString("#00") + " : " + sec.ToString("#00");
+            lab_TopClock.Text = min.ToString("#00") + "  :  " + sec.ToString("#00");
+        }
+
+        private void btn_DecSec_Click(object sender, EventArgs e)
+        {
+            if (sec>0)
+            {
+                sec--;
+            }
+            lab_BottomClock.Text = min.ToString("#00") + " : " + sec.ToString("#00");
+            lab_TopClock.Text = min.ToString("#00") + "  :  " + sec.ToString("#00");
+
+        }
+
+        private void btn_StartWatchFromZero_Click(object sender, EventArgs e)
+        {
+            lab_TopClock.Text = "00  :  00";
+            lab_BottomClock.Text = "00  :  00";
+            min = 0;
+            sec = 0;
+
         }
 
         private void Team2TimePlentyTimer_Tick(object sender, EventArgs e)
         {
-            T2sec++;
-            if (T2sec >= 60)
+            if (T2sec != 0)
             {
-                T2min++;
-                T2sec = 0;
+                T2sec--;
             }
-            if (T2min < 10 && T2sec < 10)
+            else if (T2min != 0)
             {
-                lab_Team2TopTimePlenty.Text = "0" + T2min + " : " + "0" + T2sec;
-                lab_Team2BottomTimePlenty.Text = "0" + T2min + " : " + "0" + T2sec;
+                T2sec = 59;
+                T2min--;
             }
-            else if (T2min < 10 && T2sec > 10)
+            else if (T2sec == 0 && T2min == 0)
             {
-                lab_Team2TopTimePlenty.Text = "0" + T2min + " : " + T2sec;
-                lab_Team2BottomTimePlenty.Text = "0" + T2min + " : " + T2sec;
+                Team2TimePlentyTimer.Stop();
 
             }
-            else if (T2min > 10 && T2sec < 10)
-            {
-                lab_Team2TopTimePlenty.Text = T2min + " : " + "0" + T2sec;
-                lab_Team2BottomTimePlenty.Text = T2min + " : " + "0" + T2sec;
-            }
-            else
-            {
-                lab_Team2TopTimePlenty.Text = T2min + " : " + T2sec;
-                lab_Team2BottomTimePlenty.Text = T2min + " : " + T2sec;
-            }
+            lab_Team2TopTimePlenty.Text = T2min.ToString("#00") + " : " + T2sec.ToString("#00");
+            lab_Team2BottomTimePlenty.Text = T2min.ToString("#00") + " : " + T2sec.ToString("#00");
         }
 
         private void Team1TimePlentyTimer_Tick(object sender, EventArgs e)
         {
-            T1sec++;
-            if (T1sec >= 60)
+            if (T1sec != 0)
             {
-                T1min++;
-                T1sec = 0;
+                T1sec--;
             }
-            if (T1min < 10 && T1sec < 10)
+            else if (T1min != 0)
             {
-                lab_Team1TopTimePlenty.Text = "0" + T1min + " : " + "0" + T1sec;
-                lab_Team1BottomTimePlenty.Text = "0" + T1min + " : " + "0" + T1sec;
+                T1sec = 59;
+                T1min--;
             }
-            else if (T1min < 10 && T1sec > 10)
+            else if (T1sec == 0 && T1min == 0)
             {
-                lab_Team1TopTimePlenty.Text = "0" + T1min + " : " + T1sec;
-                lab_Team1BottomTimePlenty.Text = "0" + T1min + " : " + T1sec;
+                Team1TimePlentyTimer.Stop();
 
             }
-            else if (T1min > 10 && T1sec < 10)
-            {
-                lab_Team1TopTimePlenty.Text = T1min + " : " + "0" + T1sec;
-                lab_Team1BottomTimePlenty.Text = T1min + " : " + "0" + T1sec;
-            }
-            else
-            {
-                lab_Team1TopTimePlenty.Text = T1min + " : " + T1sec;
-                lab_Team1BottomTimePlenty.Text = T1min + " : " + T1sec;
-            }
+            lab_Team1TopTimePlenty.Text = T1min.ToString("#00") + " : " + T1sec.ToString("#00");
+            lab_Team1BottomTimePlenty.Text = T1min.ToString("#00") + " : " + T1sec.ToString("#00");
+
         }
 
         private void StopWatch_Tick(object sender, EventArgs e)
@@ -197,27 +287,8 @@ namespace ScoringApp
                 min++;
                 sec = 0;
             }
-            if (min < 10 && sec < 10)
-            {
-                lab_BottomClock.Text = "0" + min + " : " + "0" + sec;
-                lab_TopClock.Text = "0" + min + "  :  " + "0" + sec;
-            }
-            else if (min < 10 && sec > 10)
-            {
-                lab_BottomClock.Text = "0" + min + " : " + sec;
-                lab_TopClock.Text = "0" + min + "  :  " + sec;
-
-            }
-            else if (min > 10 && sec < 10)
-            {
-                lab_BottomClock.Text = min + " : " + "0" + sec;
-                lab_TopClock.Text = min + "  :  " + "0" + sec;
-            }
-            else
-            {
-                lab_BottomClock.Text = min + " : " + sec;
-                lab_TopClock.Text = min + "  :  " + sec;
-            }
+            lab_BottomClock.Text =  min.ToString("#00") + " : " + sec.ToString("#00");
+            lab_TopClock.Text = min.ToString("#00") + "  :  " + sec.ToString("#00");
         }
 
         private void Form1_Load(object sender, EventArgs e)
