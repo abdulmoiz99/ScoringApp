@@ -105,12 +105,80 @@ namespace ScoringApp
         }
         private void btn_Team1TimePlenty_Click(object sender, EventArgs e)
         {
-            pnl_Team1TImePlenty.Visible = true;
-            pnl_TopTeam1TImePlenty.Visible = true;
-            btn_Team1StopPlenty.Visible = true;
+            if (displayTeam1Stack.Controls.Count < 4) 
+            {
+                Label penaltyLabel = new Label();
+                penaltyLabel.AutoSize = false;
+                penaltyLabel.BorderStyle = BorderStyle.FixedSingle;
+                penaltyLabel.Size = new Size(122, 29);
+                penaltyLabel.BackColor = Color.White;
+                penaltyLabel.ForeColor = Color.FromArgb(24, 48, 104);
+                penaltyLabel.TextAlign = ContentAlignment.MiddleCenter;
+                penaltyLabel.Font = new Font("ITC Avant Garde Std Md", 14f, FontStyle.Bold);
+                AssignAddress(penaltyLabel, displayTeam1Stack);
+                penaltyLabel.Text = penaltyLabel.Tag.ToString();
+                penaltyLabel.Click += new EventHandler(penaltyLabel_Click);
+                displayTeam1Stack.Controls.Add(penaltyLabel);
 
-            Team1TimePlentyTimer.Start();
+                Timer timer = new Timer();
+                timer.Tag = penaltyLabel.Tag.ToString();
+                timer.Interval = 1000;
+                timer.Tick += new EventHandler(timer_Tick);
+            }
 
+            //pnl_Team1TImePlenty.Visible = true;
+            //pnl_TopTeam1TImePlenty.Visible = true;
+            //btn_Team1StopPlenty.Visible = true;
+
+            //Team1TimePlentyTimer.Start();
+
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            if (T1sec != 0)
+            {
+                T1sec--;
+            }
+            else if (T1min != 0)
+            {
+                T1sec = 59;
+                T1min--;
+            }
+            else if (T1sec == 0 && T1min == 0)
+            {
+                Team1TimePlentyTimer.Stop();
+
+            }
+            lab_Team1TopTimePlenty.Text = T1min.ToString("#00") + " : " + T1sec.ToString("#00");
+            lab_Team1BottomTimePlenty.Text = T1min.ToString("#00") + " : " + T1sec.ToString("#00");
+        }
+
+        private void penaltyLabel_Click(object sender, EventArgs e)
+        {
+            displayTeam1Stack.Controls.Remove((Label)sender);
+        }
+
+        private void AssignAddress(Label label, FlowLayoutPanel panel)
+        {
+            bool found = false;
+            for (int i = 0; i < 4; i++) 
+            {
+                foreach (Control control in panel.Controls) 
+                {
+                    if ((string)control.Tag == i.ToString())
+                    {
+                        found = true;
+                        break;
+                    }
+                    else found = false;
+                }
+                if (!found)
+                {
+                    label.Tag = i.ToString();
+                    return;
+                }
+            }
         }
 
         private void btn_Team1StopPlenty_Click(object sender, EventArgs e)

@@ -88,11 +88,11 @@
             this.btn_ToSave = new System.Windows.Forms.Button();
             this.btn_StartWatchFrom30 = new System.Windows.Forms.Button();
             this.btn_StartWatchFromZero = new System.Windows.Forms.Button();
+            this.displayTeam1Stack = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel13.SuspendLayout();
             this.pnl_Team2TImePlenty.SuspendLayout();
-            this.pnl_Team1TImePlenty.SuspendLayout();
             this.panel2.SuspendLayout();
             this.pnl_TopTeam1TImePlenty.SuspendLayout();
             this.pnl_TopTeam2TImePlenty.SuspendLayout();
@@ -105,7 +105,7 @@
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(47)))), ((int)(((byte)(19)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 16F, System.Drawing.FontStyle.Bold);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
             this.button1.Location = new System.Drawing.Point(202, 312);
             this.button1.Name = "button1";
@@ -118,6 +118,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Lime;
+            this.panel1.Controls.Add(this.lab_Team1BottomTimePlenty);
+            this.panel1.Controls.Add(this.pnl_Team1TImePlenty);
+            this.panel1.Controls.Add(this.displayTeam1Stack);
             this.panel1.Controls.Add(this.panel10);
             this.panel1.Controls.Add(this.pnl_Team2Color);
             this.panel1.Controls.Add(this.pnl_Team1Color);
@@ -125,7 +128,6 @@
             this.panel1.Controls.Add(this.btn_BottomTeam1Timeout);
             this.panel1.Controls.Add(this.panel13);
             this.panel1.Controls.Add(this.pnl_Team2TImePlenty);
-            this.panel1.Controls.Add(this.pnl_Team1TImePlenty);
             this.panel1.Controls.Add(this.textBox4);
             this.panel1.Controls.Add(this.textBox3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -146,11 +148,11 @@
             // lab_Goal
             // 
             this.lab_Goal.AutoSize = true;
-            this.lab_Goal.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 25F, System.Drawing.FontStyle.Bold);
+            this.lab_Goal.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold);
             this.lab_Goal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
             this.lab_Goal.Location = new System.Drawing.Point(23, -2);
             this.lab_Goal.Name = "lab_Goal";
-            this.lab_Goal.Size = new System.Drawing.Size(94, 44);
+            this.lab_Goal.Size = new System.Drawing.Size(87, 39);
             this.lab_Goal.TabIndex = 16;
             this.lab_Goal.Text = "0 : 0";
             this.lab_Goal.Click += new System.EventHandler(this.label5_Click);
@@ -180,7 +182,7 @@
             this.btn_BottomTeam2Timeout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(47)))), ((int)(((byte)(19)))));
             this.btn_BottomTeam2Timeout.FlatAppearance.BorderSize = 0;
             this.btn_BottomTeam2Timeout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_BottomTeam2Timeout.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 18F, System.Drawing.FontStyle.Bold);
+            this.btn_BottomTeam2Timeout.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
             this.btn_BottomTeam2Timeout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
             this.btn_BottomTeam2Timeout.Location = new System.Drawing.Point(1215, 160);
             this.btn_BottomTeam2Timeout.Name = "btn_BottomTeam2Timeout";
@@ -196,7 +198,7 @@
             this.btn_BottomTeam1Timeout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(47)))), ((int)(((byte)(19)))));
             this.btn_BottomTeam1Timeout.FlatAppearance.BorderSize = 0;
             this.btn_BottomTeam1Timeout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_BottomTeam1Timeout.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 18F, System.Drawing.FontStyle.Bold);
+            this.btn_BottomTeam1Timeout.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
             this.btn_BottomTeam1Timeout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
             this.btn_BottomTeam1Timeout.Location = new System.Drawing.Point(202, 160);
             this.btn_BottomTeam1Timeout.Name = "btn_BottomTeam1Timeout";
@@ -219,11 +221,11 @@
             // lab_BottomClock
             // 
             this.lab_BottomClock.AutoSize = true;
-            this.lab_BottomClock.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lab_BottomClock.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lab_BottomClock.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
             this.lab_BottomClock.Location = new System.Drawing.Point(17, 4);
             this.lab_BottomClock.Name = "lab_BottomClock";
-            this.lab_BottomClock.Size = new System.Drawing.Size(106, 35);
+            this.lab_BottomClock.Size = new System.Drawing.Size(103, 31);
             this.lab_BottomClock.TabIndex = 15;
             this.lab_BottomClock.Text = "00 : 00";
             this.lab_BottomClock.Click += new System.EventHandler(this.label4_Click);
@@ -232,7 +234,7 @@
             // 
             this.pnl_Team2TImePlenty.BackColor = System.Drawing.Color.White;
             this.pnl_Team2TImePlenty.Controls.Add(this.lab_Team2BottomTimePlenty);
-            this.pnl_Team2TImePlenty.Location = new System.Drawing.Point(1087, 130);
+            this.pnl_Team2TImePlenty.Location = new System.Drawing.Point(1215, 125);
             this.pnl_Team2TImePlenty.Name = "pnl_Team2TImePlenty";
             this.pnl_Team2TImePlenty.Size = new System.Drawing.Size(122, 29);
             this.pnl_Team2TImePlenty.TabIndex = 39;
@@ -241,19 +243,18 @@
             // lab_Team2BottomTimePlenty
             // 
             this.lab_Team2BottomTimePlenty.AutoSize = true;
-            this.lab_Team2BottomTimePlenty.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 14F, System.Drawing.FontStyle.Bold);
+            this.lab_Team2BottomTimePlenty.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.lab_Team2BottomTimePlenty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
             this.lab_Team2BottomTimePlenty.Location = new System.Drawing.Point(23, 3);
             this.lab_Team2BottomTimePlenty.Name = "lab_Team2BottomTimePlenty";
-            this.lab_Team2BottomTimePlenty.Size = new System.Drawing.Size(75, 24);
+            this.lab_Team2BottomTimePlenty.Size = new System.Drawing.Size(72, 24);
             this.lab_Team2BottomTimePlenty.TabIndex = 18;
             this.lab_Team2BottomTimePlenty.Text = "02 : 00";
             // 
             // pnl_Team1TImePlenty
             // 
             this.pnl_Team1TImePlenty.BackColor = System.Drawing.Color.White;
-            this.pnl_Team1TImePlenty.Controls.Add(this.lab_Team1BottomTimePlenty);
-            this.pnl_Team1TImePlenty.Location = new System.Drawing.Point(381, 126);
+            this.pnl_Team1TImePlenty.Location = new System.Drawing.Point(231, 125);
             this.pnl_Team1TImePlenty.Name = "pnl_Team1TImePlenty";
             this.pnl_Team1TImePlenty.Size = new System.Drawing.Size(122, 29);
             this.pnl_Team1TImePlenty.TabIndex = 38;
@@ -261,34 +262,35 @@
             // 
             // lab_Team1BottomTimePlenty
             // 
-            this.lab_Team1BottomTimePlenty.AutoSize = true;
-            this.lab_Team1BottomTimePlenty.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 14F, System.Drawing.FontStyle.Bold);
+            this.lab_Team1BottomTimePlenty.BackColor = System.Drawing.Color.White;
+            this.lab_Team1BottomTimePlenty.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.lab_Team1BottomTimePlenty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
-            this.lab_Team1BottomTimePlenty.Location = new System.Drawing.Point(21, 2);
+            this.lab_Team1BottomTimePlenty.Location = new System.Drawing.Point(227, 79);
             this.lab_Team1BottomTimePlenty.Name = "lab_Team1BottomTimePlenty";
-            this.lab_Team1BottomTimePlenty.Size = new System.Drawing.Size(75, 24);
+            this.lab_Team1BottomTimePlenty.Size = new System.Drawing.Size(122, 34);
             this.lab_Team1BottomTimePlenty.TabIndex = 16;
             this.lab_Team1BottomTimePlenty.Text = "02 : 00";
+            this.lab_Team1BottomTimePlenty.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // textBox4
             // 
             this.textBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
-            this.textBox4.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 21F, System.Drawing.FontStyle.Bold);
+            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 21F, System.Drawing.FontStyle.Bold);
             this.textBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(47)))), ((int)(((byte)(19)))));
             this.textBox4.Location = new System.Drawing.Point(862, 160);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(347, 44);
+            this.textBox4.Size = new System.Drawing.Size(347, 39);
             this.textBox4.TabIndex = 15;
             this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox3
             // 
             this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
-            this.textBox3.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(47)))), ((int)(((byte)(19)))));
             this.textBox3.Location = new System.Drawing.Point(380, 160);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(347, 44);
+            this.textBox3.Size = new System.Drawing.Size(347, 39);
             this.textBox3.TabIndex = 14;
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -298,7 +300,7 @@
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(47)))), ((int)(((byte)(19)))));
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 16F, System.Drawing.FontStyle.Bold);
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
             this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
             this.button2.Location = new System.Drawing.Point(27, 312);
             this.button2.Name = "button2";
@@ -313,7 +315,7 @@
             this.btn_Team1LeeresTOR.FlatAppearance.BorderSize = 0;
             this.btn_Team1LeeresTOR.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(47)))), ((int)(((byte)(19)))));
             this.btn_Team1LeeresTOR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Team1LeeresTOR.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 16F, System.Drawing.FontStyle.Bold);
+            this.btn_Team1LeeresTOR.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
             this.btn_Team1LeeresTOR.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
             this.btn_Team1LeeresTOR.Location = new System.Drawing.Point(27, 388);
             this.btn_Team1LeeresTOR.Name = "btn_Team1LeeresTOR";
@@ -329,7 +331,7 @@
             this.btn_TopTeam1Timeout.FlatAppearance.BorderSize = 0;
             this.btn_TopTeam1Timeout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(47)))), ((int)(((byte)(19)))));
             this.btn_TopTeam1Timeout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_TopTeam1Timeout.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 16F, System.Drawing.FontStyle.Bold);
+            this.btn_TopTeam1Timeout.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
             this.btn_TopTeam1Timeout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
             this.btn_TopTeam1Timeout.Location = new System.Drawing.Point(202, 388);
             this.btn_TopTeam1Timeout.Name = "btn_TopTeam1Timeout";
@@ -344,7 +346,7 @@
             this.btn_Team1Dec.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(47)))), ((int)(((byte)(19)))));
             this.btn_Team1Dec.FlatAppearance.BorderSize = 0;
             this.btn_Team1Dec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Team1Dec.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 20.25F, System.Drawing.FontStyle.Bold);
+            this.btn_Team1Dec.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold);
             this.btn_Team1Dec.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
             this.btn_Team1Dec.Location = new System.Drawing.Point(380, 441);
             this.btn_Team1Dec.Name = "btn_Team1Dec";
@@ -360,7 +362,7 @@
             this.btn_Team1Inc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(47)))), ((int)(((byte)(19)))));
             this.btn_Team1Inc.FlatAppearance.BorderSize = 0;
             this.btn_Team1Inc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Team1Inc.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 20.25F, System.Drawing.FontStyle.Bold);
+            this.btn_Team1Inc.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold);
             this.btn_Team1Inc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
             this.btn_Team1Inc.Location = new System.Drawing.Point(653, 441);
             this.btn_Team1Inc.Name = "btn_Team1Inc";
@@ -374,11 +376,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(520, 446);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 35);
+            this.label1.Size = new System.Drawing.Size(75, 31);
             this.label1.TabIndex = 12;
             this.label1.Text = "TOR";
             // 
@@ -409,11 +411,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 20.25F, System.Drawing.FontStyle.Bold);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(1002, 445);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 35);
+            this.label3.Size = new System.Drawing.Size(75, 31);
             this.label3.TabIndex = 19;
             this.label3.Text = "TOR";
             // 
@@ -422,7 +424,7 @@
             this.btn_Team2Inc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(47)))), ((int)(((byte)(19)))));
             this.btn_Team2Inc.FlatAppearance.BorderSize = 0;
             this.btn_Team2Inc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Team2Inc.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Team2Inc.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Team2Inc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
             this.btn_Team2Inc.Location = new System.Drawing.Point(1135, 441);
             this.btn_Team2Inc.Name = "btn_Team2Inc";
@@ -438,7 +440,7 @@
             this.btn_Team2Dec.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(47)))), ((int)(((byte)(19)))));
             this.btn_Team2Dec.FlatAppearance.BorderSize = 0;
             this.btn_Team2Dec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Team2Dec.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 20.25F, System.Drawing.FontStyle.Bold);
+            this.btn_Team2Dec.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold);
             this.btn_Team2Dec.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
             this.btn_Team2Dec.Location = new System.Drawing.Point(862, 441);
             this.btn_Team2Dec.Name = "btn_Team2Dec";
@@ -454,7 +456,7 @@
             this.button11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(47)))), ((int)(((byte)(19)))));
             this.button11.FlatAppearance.BorderSize = 0;
             this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button11.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 19.25F, System.Drawing.FontStyle.Bold);
+            this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.25F, System.Drawing.FontStyle.Bold);
             this.button11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
             this.button11.Location = new System.Drawing.Point(862, 388);
             this.button11.Name = "button11";
@@ -469,7 +471,7 @@
             this.btn_Team2LeeresTOR.FlatAppearance.BorderSize = 0;
             this.btn_Team2LeeresTOR.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(47)))), ((int)(((byte)(19)))));
             this.btn_Team2LeeresTOR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Team2LeeresTOR.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 16F, System.Drawing.FontStyle.Bold);
+            this.btn_Team2LeeresTOR.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
             this.btn_Team2LeeresTOR.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
             this.btn_Team2LeeresTOR.Location = new System.Drawing.Point(1229, 388);
             this.btn_Team2LeeresTOR.Name = "btn_Team2LeeresTOR";
@@ -485,7 +487,7 @@
             this.btn_TopTeam2Timeout.FlatAppearance.BorderSize = 0;
             this.btn_TopTeam2Timeout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(47)))), ((int)(((byte)(19)))));
             this.btn_TopTeam2Timeout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_TopTeam2Timeout.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 16F, System.Drawing.FontStyle.Bold);
+            this.btn_TopTeam2Timeout.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
             this.btn_TopTeam2Timeout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
             this.btn_TopTeam2Timeout.Location = new System.Drawing.Point(1404, 388);
             this.btn_TopTeam2Timeout.Name = "btn_TopTeam2Timeout";
@@ -501,7 +503,7 @@
             this.button14.FlatAppearance.BorderSize = 0;
             this.button14.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(47)))), ((int)(((byte)(19)))));
             this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button14.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 16F, System.Drawing.FontStyle.Bold);
+            this.button14.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
             this.button14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
             this.button14.Location = new System.Drawing.Point(1229, 312);
             this.button14.Name = "button14";
@@ -516,7 +518,7 @@
             this.button15.FlatAppearance.BorderSize = 0;
             this.button15.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(47)))), ((int)(((byte)(19)))));
             this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button15.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 16F, System.Drawing.FontStyle.Bold);
+            this.button15.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
             this.button15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
             this.button15.Location = new System.Drawing.Point(1404, 312);
             this.button15.Name = "button15";
@@ -537,11 +539,11 @@
             // lab_TopClock
             // 
             this.lab_TopClock.AutoSize = true;
-            this.lab_TopClock.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lab_TopClock.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lab_TopClock.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
             this.lab_TopClock.Location = new System.Drawing.Point(52, 3);
             this.lab_TopClock.Name = "lab_TopClock";
-            this.lab_TopClock.Size = new System.Drawing.Size(147, 41);
+            this.lab_TopClock.Size = new System.Drawing.Size(143, 37);
             this.lab_TopClock.TabIndex = 16;
             this.lab_TopClock.Text = "00  :  00";
             // 
@@ -550,7 +552,7 @@
             this.btn_Reset.BackColor = System.Drawing.Color.White;
             this.btn_Reset.FlatAppearance.BorderSize = 0;
             this.btn_Reset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Reset.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 9F, System.Drawing.FontStyle.Bold);
+            this.btn_Reset.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.btn_Reset.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
             this.btn_Reset.Location = new System.Drawing.Point(725, 153);
             this.btn_Reset.Name = "btn_Reset";
@@ -595,7 +597,7 @@
             this.btn_IncSec.BackColor = System.Drawing.Color.White;
             this.btn_IncSec.FlatAppearance.BorderSize = 0;
             this.btn_IncSec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_IncSec.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 11F, System.Drawing.FontStyle.Bold);
+            this.btn_IncSec.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
             this.btn_IncSec.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
             this.btn_IncSec.Location = new System.Drawing.Point(867, 153);
             this.btn_IncSec.Name = "btn_IncSec";
@@ -634,11 +636,11 @@
             // lab_Team1TopTimePlenty
             // 
             this.lab_Team1TopTimePlenty.AutoSize = true;
-            this.lab_Team1TopTimePlenty.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 14F, System.Drawing.FontStyle.Bold);
+            this.lab_Team1TopTimePlenty.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.lab_Team1TopTimePlenty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
             this.lab_Team1TopTimePlenty.Location = new System.Drawing.Point(24, 4);
             this.lab_Team1TopTimePlenty.Name = "lab_Team1TopTimePlenty";
-            this.lab_Team1TopTimePlenty.Size = new System.Drawing.Size(75, 24);
+            this.lab_Team1TopTimePlenty.Size = new System.Drawing.Size(72, 24);
             this.lab_Team1TopTimePlenty.TabIndex = 17;
             this.lab_Team1TopTimePlenty.Text = "02 : 00";
             // 
@@ -655,11 +657,11 @@
             // lab_Team2TopTimePlenty
             // 
             this.lab_Team2TopTimePlenty.AutoSize = true;
-            this.lab_Team2TopTimePlenty.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 14F, System.Drawing.FontStyle.Bold);
+            this.lab_Team2TopTimePlenty.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.lab_Team2TopTimePlenty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
             this.lab_Team2TopTimePlenty.Location = new System.Drawing.Point(20, 4);
             this.lab_Team2TopTimePlenty.Name = "lab_Team2TopTimePlenty";
-            this.lab_Team2TopTimePlenty.Size = new System.Drawing.Size(75, 24);
+            this.lab_Team2TopTimePlenty.Size = new System.Drawing.Size(72, 24);
             this.lab_Team2TopTimePlenty.TabIndex = 18;
             this.lab_Team2TopTimePlenty.Text = "02 : 00";
             // 
@@ -668,7 +670,7 @@
             this.btn_Team1StopPlenty.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(135)))), ((int)(((byte)(171)))));
             this.btn_Team1StopPlenty.FlatAppearance.BorderSize = 0;
             this.btn_Team1StopPlenty.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Team1StopPlenty.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 10F, System.Drawing.FontStyle.Bold);
+            this.btn_Team1StopPlenty.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.btn_Team1StopPlenty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
             this.btn_Team1StopPlenty.Location = new System.Drawing.Point(508, 274);
             this.btn_Team1StopPlenty.Name = "btn_Team1StopPlenty";
@@ -685,7 +687,7 @@
             this.btn_Team2StopPlenty.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(135)))), ((int)(((byte)(171)))));
             this.btn_Team2StopPlenty.FlatAppearance.BorderSize = 0;
             this.btn_Team2StopPlenty.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Team2StopPlenty.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 10F, System.Drawing.FontStyle.Bold);
+            this.btn_Team2StopPlenty.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.btn_Team2StopPlenty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
             this.btn_Team2StopPlenty.Location = new System.Drawing.Point(988, 274);
             this.btn_Team2StopPlenty.Name = "btn_Team2StopPlenty";
@@ -702,7 +704,7 @@
             this.button9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(47)))), ((int)(((byte)(19)))));
             this.button9.FlatAppearance.BorderSize = 0;
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 19.25F, System.Drawing.FontStyle.Bold);
+            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.25F, System.Drawing.FontStyle.Bold);
             this.button9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
             this.button9.Location = new System.Drawing.Point(380, 388);
             this.button9.Name = "button9";
@@ -721,7 +723,7 @@
             this.btn_Team1TimePlenty.BackColor = System.Drawing.Color.White;
             this.btn_Team1TimePlenty.FlatAppearance.BorderSize = 0;
             this.btn_Team1TimePlenty.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Team1TimePlenty.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 15F, System.Drawing.FontStyle.Bold);
+            this.btn_Team1TimePlenty.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
             this.btn_Team1TimePlenty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
             this.btn_Team1TimePlenty.Location = new System.Drawing.Point(380, 326);
             this.btn_Team1TimePlenty.Name = "btn_Team1TimePlenty";
@@ -737,7 +739,7 @@
             this.btn_Team2TimePlenty.BackColor = System.Drawing.Color.White;
             this.btn_Team2TimePlenty.FlatAppearance.BorderSize = 0;
             this.btn_Team2TimePlenty.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Team2TimePlenty.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 15F, System.Drawing.FontStyle.Bold);
+            this.btn_Team2TimePlenty.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
             this.btn_Team2TimePlenty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
             this.btn_Team2TimePlenty.Location = new System.Drawing.Point(862, 326);
             this.btn_Team2TimePlenty.Name = "btn_Team2TimePlenty";
@@ -763,7 +765,7 @@
             this.btn_HalfTime_Results.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(138)))), ((int)(((byte)(173)))));
             this.btn_HalfTime_Results.FlatAppearance.BorderSize = 0;
             this.btn_HalfTime_Results.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_HalfTime_Results.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 8F, System.Drawing.FontStyle.Bold);
+            this.btn_HalfTime_Results.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             this.btn_HalfTime_Results.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
             this.btn_HalfTime_Results.Location = new System.Drawing.Point(653, 63);
             this.btn_HalfTime_Results.Name = "btn_HalfTime_Results";
@@ -778,7 +780,7 @@
             this.btn_Results.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(138)))), ((int)(((byte)(173)))));
             this.btn_Results.FlatAppearance.BorderSize = 0;
             this.btn_Results.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Results.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 8F, System.Drawing.FontStyle.Bold);
+            this.btn_Results.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             this.btn_Results.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
             this.btn_Results.Location = new System.Drawing.Point(781, 63);
             this.btn_Results.Name = "btn_Results";
@@ -810,7 +812,7 @@
             this.btn_START.FlatAppearance.BorderSize = 0;
             this.btn_START.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(47)))), ((int)(((byte)(19)))));
             this.btn_START.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_START.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 9.5F, System.Drawing.FontStyle.Bold);
+            this.btn_START.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold);
             this.btn_START.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
             this.btn_START.Location = new System.Drawing.Point(1455, 606);
             this.btn_START.Name = "btn_START";
@@ -823,11 +825,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(476, 108);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(139, 35);
+            this.label4.Size = new System.Drawing.Size(166, 31);
             this.label4.TabIndex = 47;
             this.label4.Text = "NEUE ZEIT";
             // 
@@ -836,7 +838,7 @@
             this.btn_ToSave.BackColor = System.Drawing.Color.White;
             this.btn_ToSave.FlatAppearance.BorderSize = 0;
             this.btn_ToSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_ToSave.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 10F, System.Drawing.FontStyle.Bold);
+            this.btn_ToSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.btn_ToSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
             this.btn_ToSave.Location = new System.Drawing.Point(912, 146);
             this.btn_ToSave.Name = "btn_ToSave";
@@ -851,7 +853,7 @@
             this.btn_StartWatchFrom30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(138)))), ((int)(((byte)(173)))));
             this.btn_StartWatchFrom30.FlatAppearance.BorderSize = 0;
             this.btn_StartWatchFrom30.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_StartWatchFrom30.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 10F, System.Drawing.FontStyle.Bold);
+            this.btn_StartWatchFrom30.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.btn_StartWatchFrom30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
             this.btn_StartWatchFrom30.Location = new System.Drawing.Point(912, 110);
             this.btn_StartWatchFrom30.Name = "btn_StartWatchFrom30";
@@ -866,7 +868,7 @@
             this.btn_StartWatchFromZero.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(138)))), ((int)(((byte)(173)))));
             this.btn_StartWatchFromZero.FlatAppearance.BorderSize = 0;
             this.btn_StartWatchFromZero.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_StartWatchFromZero.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 10F, System.Drawing.FontStyle.Bold);
+            this.btn_StartWatchFromZero.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.btn_StartWatchFromZero.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
             this.btn_StartWatchFromZero.Location = new System.Drawing.Point(912, 74);
             this.btn_StartWatchFromZero.Name = "btn_StartWatchFromZero";
@@ -875,6 +877,14 @@
             this.btn_StartWatchFromZero.Text = "00 : 00";
             this.btn_StartWatchFromZero.UseVisualStyleBackColor = false;
             this.btn_StartWatchFromZero.Click += new System.EventHandler(this.btn_StartWatchFromZero_Click);
+            // 
+            // displayTeam1Stack
+            // 
+            this.displayTeam1Stack.FlowDirection = System.Windows.Forms.FlowDirection.BottomUp;
+            this.displayTeam1Stack.Location = new System.Drawing.Point(380, 3);
+            this.displayTeam1Stack.Name = "displayTeam1Stack";
+            this.displayTeam1Stack.Size = new System.Drawing.Size(183, 152);
+            this.displayTeam1Stack.TabIndex = 44;
             // 
             // Form1
             // 
@@ -928,8 +938,6 @@
             this.panel13.PerformLayout();
             this.pnl_Team2TImePlenty.ResumeLayout(false);
             this.pnl_Team2TImePlenty.PerformLayout();
-            this.pnl_Team1TImePlenty.ResumeLayout(false);
-            this.pnl_Team1TImePlenty.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.pnl_TopTeam1TImePlenty.ResumeLayout(false);
@@ -1004,6 +1012,7 @@
         private System.Windows.Forms.Button btn_START;
         private System.Windows.Forms.Panel pnl_Team1Color;
         private System.Windows.Forms.Panel pnl_Team2Color;
+        private System.Windows.Forms.FlowLayoutPanel displayTeam1Stack;
     }
 }
 
