@@ -23,6 +23,8 @@ namespace ScoringApp
 
         //Timeout
         bool team1Timeout = false, team2Timeout = false;
+
+        bool start = false;
         private void CheckTimeout()
         {
             if (team1Timeout == true && team2Timeout == true)
@@ -167,8 +169,7 @@ namespace ScoringApp
 
         private void btn_StartWatchFrom30_Click(object sender, EventArgs e)
         {
-            lab_TopClock.Text = "00  :  00";
-            lab_BottomClock.Text = "00  :  00";
+            lab_TopClock.Text = "30  :  00";
             min = 30;
             sec = 30;
 
@@ -187,7 +188,6 @@ namespace ScoringApp
             if (min <= 99)
             {
                 min++;
-                lab_BottomClock.Text = min.ToString("#00") + " : " + sec.ToString("#00");
                 lab_TopClock.Text = min.ToString("#00") + "  :  " + sec.ToString("#00");
             }
             
@@ -204,7 +204,7 @@ namespace ScoringApp
                 min++;
                 sec = 0;
             }
-            lab_BottomClock.Text = min.ToString("#00") + " : " + sec.ToString("#00");
+            //lab_BottomClock.Text = min.ToString("#00") + " : " + sec.ToString("#00");
             lab_TopClock.Text = min.ToString("#00") + "  :  " + sec.ToString("#00");
         }
 
@@ -214,7 +214,6 @@ namespace ScoringApp
             {
                 min--;
             }
-            lab_BottomClock.Text = min.ToString("#00") + " : " + sec.ToString("#00");
             lab_TopClock.Text = min.ToString("#00") + "  :  " + sec.ToString("#00");
         }
 
@@ -224,15 +223,85 @@ namespace ScoringApp
             {
                 sec--;
             }
-            lab_BottomClock.Text = min.ToString("#00") + " : " + sec.ToString("#00");
             lab_TopClock.Text = min.ToString("#00") + "  :  " + sec.ToString("#00");
 
+        }
+
+        private void pnl_Team1Color_Click(object sender, EventArgs e)
+        {
+            ColorDialog MyDialog = new ColorDialog();
+            // Keeps the user from selecting a custom color.
+            //MyDialog.AllowFullOpen = false;
+            // Allows the user to get help. (The default is false.)
+            MyDialog.ShowHelp = true;
+            // Sets the initial color select to the current text color.
+            MyDialog.Color = pnl_Team1Color.BackColor;
+
+            // Update the text box color if the user clicks OK 
+            if (MyDialog.ShowDialog() == DialogResult.OK)
+                pnl_Team1Color.BackColor = MyDialog.Color;
+        }
+
+        private void pnl_Team2Color_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_Team1LeeresTOR_Click(object sender, EventArgs e)
+        {
+            btn_BottomTeam1Timeout.Visible = true;
+            team1Timeout = true;
+            CheckTimeout();
+        }
+
+        private void btn_Team2LeeresTOR_Click(object sender, EventArgs e)
+        {
+            btn_BottomTeam2Timeout.Visible = true;
+            team2Timeout = true;
+            CheckTimeout();
+        }
+
+        private void pnl_Team1Color_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pnl_Team2Color_Click(object sender, EventArgs e)
+        {
+            ColorDialog MyDialog = new ColorDialog();
+            // Keeps the user from selecting a custom color.
+            //MyDialog.AllowFullOpen = false;
+            // Allows the user to get help. (The default is false.)
+            MyDialog.ShowHelp = true;
+            // Sets the initial color select to the current text color.
+            MyDialog.Color = pnl_Team2Color.BackColor;
+
+            // Update the text box color if the user clicks OK 
+            if (MyDialog.ShowDialog() == DialogResult.OK)
+                pnl_Team2Color.BackColor = MyDialog.Color;
+        }
+        private void btn_START_Click(object sender, EventArgs e)
+        {
+            if (start == true) start = false;
+            else if (start == false) start = true;
+
+            if (start == true) StopWatch.Start();
+            else StopWatch.Stop();
+        }
+
+        private void btn_ToSave_Click(object sender, EventArgs e)
+        {
+            lab_BottomClock.Text = min.ToString("#00") + " : " + sec.ToString("#00");
         }
 
         private void btn_StartWatchFromZero_Click(object sender, EventArgs e)
         {
             lab_TopClock.Text = "00  :  00";
-            lab_BottomClock.Text = "00  :  00";
             min = 0;
             sec = 0;
 
@@ -287,12 +356,17 @@ namespace ScoringApp
                 min++;
                 sec = 0;
             }
-            lab_BottomClock.Text =  min.ToString("#00") + " : " + sec.ToString("#00");
             lab_TopClock.Text = min.ToString("#00") + "  :  " + sec.ToString("#00");
+            lab_BottomClock.Text =  min.ToString("#00") + " : " + sec.ToString("#00");
+            if (min ==30 && sec == 0 || min == 60 && sec == 0)
+            {
+                StopWatch.Stop();
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
         }
 
 

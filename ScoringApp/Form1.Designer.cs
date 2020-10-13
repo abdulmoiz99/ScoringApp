@@ -29,9 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.lab_Goal = new System.Windows.Forms.Label();
+            this.pnl_Team2Color = new System.Windows.Forms.Panel();
+            this.pnl_Team1Color = new System.Windows.Forms.Panel();
             this.btn_BottomTeam2Timeout = new System.Windows.Forms.Button();
             this.btn_BottomTeam1Timeout = new System.Windows.Forms.Button();
             this.panel13 = new System.Windows.Forms.Panel();
@@ -40,12 +43,10 @@
             this.lab_Team2BottomTimePlenty = new System.Windows.Forms.Label();
             this.pnl_Team1TImePlenty = new System.Windows.Forms.Panel();
             this.lab_Team1BottomTimePlenty = new System.Windows.Forms.Label();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.lab_Goal = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btn_Team1LeeresTOR = new System.Windows.Forms.Button();
             this.btn_TopTeam1Timeout = new System.Windows.Forms.Button();
             this.btn_Team1Dec = new System.Windows.Forms.Button();
             this.btn_Team1Inc = new System.Windows.Forms.Button();
@@ -56,7 +57,7 @@
             this.btn_Team2Inc = new System.Windows.Forms.Button();
             this.btn_Team2Dec = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
+            this.btn_Team2LeeresTOR = new System.Windows.Forms.Button();
             this.btn_TopTeam2Timeout = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
@@ -82,16 +83,16 @@
             this.btn_HalfTime_Results = new System.Windows.Forms.Button();
             this.btn_Results = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.btn_StartWatchFromZero = new System.Windows.Forms.Button();
-            this.btn_StartWatchFrom30 = new System.Windows.Forms.Button();
-            this.btn_ToSave = new System.Windows.Forms.Button();
+            this.btn_START = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btn_ToSave = new System.Windows.Forms.Button();
+            this.btn_StartWatchFrom30 = new System.Windows.Forms.Button();
+            this.btn_StartWatchFromZero = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            this.panel10.SuspendLayout();
             this.panel13.SuspendLayout();
             this.pnl_Team2TImePlenty.SuspendLayout();
             this.pnl_Team1TImePlenty.SuspendLayout();
-            this.panel10.SuspendLayout();
             this.panel2.SuspendLayout();
             this.pnl_TopTeam1TImePlenty.SuspendLayout();
             this.pnl_TopTeam2TImePlenty.SuspendLayout();
@@ -112,16 +113,19 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "TIME OUT";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Lime;
+            this.panel1.Controls.Add(this.panel10);
+            this.panel1.Controls.Add(this.pnl_Team2Color);
+            this.panel1.Controls.Add(this.pnl_Team1Color);
             this.panel1.Controls.Add(this.btn_BottomTeam2Timeout);
             this.panel1.Controls.Add(this.btn_BottomTeam1Timeout);
             this.panel1.Controls.Add(this.panel13);
             this.panel1.Controls.Add(this.pnl_Team2TImePlenty);
             this.panel1.Controls.Add(this.pnl_Team1TImePlenty);
-            this.panel1.Controls.Add(this.panel10);
             this.panel1.Controls.Add(this.textBox4);
             this.panel1.Controls.Add(this.textBox3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -129,6 +133,47 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1586, 252);
             this.panel1.TabIndex = 1;
+            // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(47)))), ((int)(((byte)(19)))));
+            this.panel10.Controls.Add(this.lab_Goal);
+            this.panel10.Location = new System.Drawing.Point(725, 160);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(140, 55);
+            this.panel10.TabIndex = 26;
+            // 
+            // lab_Goal
+            // 
+            this.lab_Goal.AutoSize = true;
+            this.lab_Goal.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 25F, System.Drawing.FontStyle.Bold);
+            this.lab_Goal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
+            this.lab_Goal.Location = new System.Drawing.Point(23, -2);
+            this.lab_Goal.Name = "lab_Goal";
+            this.lab_Goal.Size = new System.Drawing.Size(94, 44);
+            this.lab_Goal.TabIndex = 16;
+            this.lab_Goal.Text = "0 : 0";
+            this.lab_Goal.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // pnl_Team2Color
+            // 
+            this.pnl_Team2Color.BackColor = System.Drawing.Color.White;
+            this.pnl_Team2Color.Location = new System.Drawing.Point(855, 204);
+            this.pnl_Team2Color.Name = "pnl_Team2Color";
+            this.pnl_Team2Color.Size = new System.Drawing.Size(354, 10);
+            this.pnl_Team2Color.TabIndex = 43;
+            this.pnl_Team2Color.Click += new System.EventHandler(this.pnl_Team2Color_Click);
+            this.pnl_Team2Color.Paint += new System.Windows.Forms.PaintEventHandler(this.pnl_Team2Color_Paint);
+            // 
+            // pnl_Team1Color
+            // 
+            this.pnl_Team1Color.BackColor = System.Drawing.Color.White;
+            this.pnl_Team1Color.Location = new System.Drawing.Point(380, 203);
+            this.pnl_Team1Color.Name = "pnl_Team1Color";
+            this.pnl_Team1Color.Size = new System.Drawing.Size(354, 10);
+            this.pnl_Team1Color.TabIndex = 17;
+            this.pnl_Team1Color.Click += new System.EventHandler(this.pnl_Team1Color_Click);
+            this.pnl_Team1Color.Paint += new System.Windows.Forms.PaintEventHandler(this.pnl_Team1Color_Paint);
             // 
             // btn_BottomTeam2Timeout
             // 
@@ -225,27 +270,6 @@
             this.lab_Team1BottomTimePlenty.TabIndex = 16;
             this.lab_Team1BottomTimePlenty.Text = "02 : 00";
             // 
-            // panel10
-            // 
-            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(47)))), ((int)(((byte)(19)))));
-            this.panel10.Controls.Add(this.lab_Goal);
-            this.panel10.Location = new System.Drawing.Point(725, 160);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(140, 43);
-            this.panel10.TabIndex = 26;
-            // 
-            // lab_Goal
-            // 
-            this.lab_Goal.AutoSize = true;
-            this.lab_Goal.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 25F, System.Drawing.FontStyle.Bold);
-            this.lab_Goal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
-            this.lab_Goal.Location = new System.Drawing.Point(23, -2);
-            this.lab_Goal.Name = "lab_Goal";
-            this.lab_Goal.Size = new System.Drawing.Size(94, 44);
-            this.lab_Goal.TabIndex = 16;
-            this.lab_Goal.Text = "0 : 0";
-            this.lab_Goal.Click += new System.EventHandler(this.label5_Click);
-            // 
             // textBox4
             // 
             this.textBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
@@ -283,20 +307,21 @@
             this.button2.Text = "LEERES TOR";
             this.button2.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // btn_Team1LeeresTOR
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(50)))), ((int)(((byte)(67)))));
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(47)))), ((int)(((byte)(19)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 16F, System.Drawing.FontStyle.Bold);
-            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
-            this.button3.Location = new System.Drawing.Point(27, 388);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(165, 47);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "LEERES TOR";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btn_Team1LeeresTOR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(50)))), ((int)(((byte)(67)))));
+            this.btn_Team1LeeresTOR.FlatAppearance.BorderSize = 0;
+            this.btn_Team1LeeresTOR.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(47)))), ((int)(((byte)(19)))));
+            this.btn_Team1LeeresTOR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Team1LeeresTOR.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 16F, System.Drawing.FontStyle.Bold);
+            this.btn_Team1LeeresTOR.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
+            this.btn_Team1LeeresTOR.Location = new System.Drawing.Point(27, 388);
+            this.btn_Team1LeeresTOR.Name = "btn_Team1LeeresTOR";
+            this.btn_Team1LeeresTOR.Size = new System.Drawing.Size(165, 47);
+            this.btn_Team1LeeresTOR.TabIndex = 4;
+            this.btn_Team1LeeresTOR.Text = "LEERES TOR";
+            this.btn_Team1LeeresTOR.UseVisualStyleBackColor = false;
+            this.btn_Team1LeeresTOR.Click += new System.EventHandler(this.btn_Team1LeeresTOR_Click);
             // 
             // btn_TopTeam1Timeout
             // 
@@ -438,20 +463,21 @@
             this.button11.Text = "TEAM 2";
             this.button11.UseVisualStyleBackColor = false;
             // 
-            // button12
+            // btn_Team2LeeresTOR
             // 
-            this.button12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(50)))), ((int)(((byte)(67)))));
-            this.button12.FlatAppearance.BorderSize = 0;
-            this.button12.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(47)))), ((int)(((byte)(19)))));
-            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button12.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 16F, System.Drawing.FontStyle.Bold);
-            this.button12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
-            this.button12.Location = new System.Drawing.Point(1229, 388);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(165, 47);
-            this.button12.TabIndex = 24;
-            this.button12.Text = "LEERES TOR";
-            this.button12.UseVisualStyleBackColor = false;
+            this.btn_Team2LeeresTOR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(50)))), ((int)(((byte)(67)))));
+            this.btn_Team2LeeresTOR.FlatAppearance.BorderSize = 0;
+            this.btn_Team2LeeresTOR.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(47)))), ((int)(((byte)(19)))));
+            this.btn_Team2LeeresTOR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Team2LeeresTOR.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 16F, System.Drawing.FontStyle.Bold);
+            this.btn_Team2LeeresTOR.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
+            this.btn_Team2LeeresTOR.Location = new System.Drawing.Point(1229, 388);
+            this.btn_Team2LeeresTOR.Name = "btn_Team2LeeresTOR";
+            this.btn_Team2LeeresTOR.Size = new System.Drawing.Size(165, 47);
+            this.btn_Team2LeeresTOR.TabIndex = 24;
+            this.btn_Team2LeeresTOR.Text = "LEERES TOR";
+            this.btn_Team2LeeresTOR.UseVisualStyleBackColor = false;
+            this.btn_Team2LeeresTOR.Click += new System.EventHandler(this.btn_Team2LeeresTOR_Click);
             // 
             // btn_TopTeam2Timeout
             // 
@@ -687,7 +713,7 @@
             // 
             // StopWatch
             // 
-            this.StopWatch.Enabled = true;
+            this.StopWatch.Interval = 1;
             this.StopWatch.Tick += new System.EventHandler(this.StopWatch_Tick);
             // 
             // btn_Team1TimePlenty
@@ -724,6 +750,7 @@
             // 
             // Team1TimePlentyTimer
             // 
+            this.Team1TimePlentyTimer.Interval = 1000;
             this.Team1TimePlentyTimer.Tick += new System.EventHandler(this.Team1TimePlentyTimer_Tick);
             // 
             // Team2TimePlentyTimer
@@ -762,9 +789,8 @@
             // 
             // panel8
             // 
-            this.panel8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel8.BackgroundImage")));
             this.panel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel8.Controls.Add(this.button4);
+            this.panel8.Controls.Add(this.btn_START);
             this.panel8.Controls.Add(this.label4);
             this.panel8.Controls.Add(this.btn_ToSave);
             this.panel8.Controls.Add(this.btn_StartWatchFrom30);
@@ -778,20 +804,47 @@
             this.panel8.TabIndex = 43;
             this.panel8.Paint += new System.Windows.Forms.PaintEventHandler(this.panel8_Paint);
             // 
-            // btn_StartWatchFromZero
+            // btn_START
             // 
-            this.btn_StartWatchFromZero.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(138)))), ((int)(((byte)(173)))));
-            this.btn_StartWatchFromZero.FlatAppearance.BorderSize = 0;
-            this.btn_StartWatchFromZero.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_StartWatchFromZero.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 10F, System.Drawing.FontStyle.Bold);
-            this.btn_StartWatchFromZero.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
-            this.btn_StartWatchFromZero.Location = new System.Drawing.Point(912, 74);
-            this.btn_StartWatchFromZero.Name = "btn_StartWatchFromZero";
-            this.btn_StartWatchFromZero.Size = new System.Drawing.Size(135, 28);
-            this.btn_StartWatchFromZero.TabIndex = 44;
-            this.btn_StartWatchFromZero.Text = "00 : 00";
-            this.btn_StartWatchFromZero.UseVisualStyleBackColor = false;
-            this.btn_StartWatchFromZero.Click += new System.EventHandler(this.btn_StartWatchFromZero_Click);
+            this.btn_START.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(50)))), ((int)(((byte)(67)))));
+            this.btn_START.FlatAppearance.BorderSize = 0;
+            this.btn_START.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(47)))), ((int)(((byte)(19)))));
+            this.btn_START.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_START.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 9.5F, System.Drawing.FontStyle.Bold);
+            this.btn_START.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
+            this.btn_START.Location = new System.Drawing.Point(1455, 606);
+            this.btn_START.Name = "btn_START";
+            this.btn_START.Size = new System.Drawing.Size(114, 29);
+            this.btn_START.TabIndex = 48;
+            this.btn_START.Text = "&START";
+            this.btn_START.UseVisualStyleBackColor = false;
+            this.btn_START.Click += new System.EventHandler(this.btn_START_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(476, 108);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(139, 35);
+            this.label4.TabIndex = 47;
+            this.label4.Text = "NEUE ZEIT";
+            // 
+            // btn_ToSave
+            // 
+            this.btn_ToSave.BackColor = System.Drawing.Color.White;
+            this.btn_ToSave.FlatAppearance.BorderSize = 0;
+            this.btn_ToSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ToSave.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 10F, System.Drawing.FontStyle.Bold);
+            this.btn_ToSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
+            this.btn_ToSave.Location = new System.Drawing.Point(912, 146);
+            this.btn_ToSave.Name = "btn_ToSave";
+            this.btn_ToSave.Size = new System.Drawing.Size(135, 28);
+            this.btn_ToSave.TabIndex = 46;
+            this.btn_ToSave.Text = "SPEICHERN";
+            this.btn_ToSave.UseVisualStyleBackColor = false;
+            this.btn_ToSave.Click += new System.EventHandler(this.btn_ToSave_Click);
             // 
             // btn_StartWatchFrom30
             // 
@@ -808,45 +861,20 @@
             this.btn_StartWatchFrom30.UseVisualStyleBackColor = false;
             this.btn_StartWatchFrom30.Click += new System.EventHandler(this.btn_StartWatchFrom30_Click);
             // 
-            // btn_ToSave
+            // btn_StartWatchFromZero
             // 
-            this.btn_ToSave.BackColor = System.Drawing.Color.White;
-            this.btn_ToSave.FlatAppearance.BorderSize = 0;
-            this.btn_ToSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_ToSave.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 10F, System.Drawing.FontStyle.Bold);
-            this.btn_ToSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
-            this.btn_ToSave.Location = new System.Drawing.Point(912, 146);
-            this.btn_ToSave.Name = "btn_ToSave";
-            this.btn_ToSave.Size = new System.Drawing.Size(135, 28);
-            this.btn_ToSave.TabIndex = 46;
-            this.btn_ToSave.Text = "SPEICHERN";
-            this.btn_ToSave.UseVisualStyleBackColor = false;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(476, 108);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(139, 35);
-            this.label4.TabIndex = 47;
-            this.label4.Text = "NEUE ZEIT";
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(50)))), ((int)(((byte)(67)))));
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(47)))), ((int)(((byte)(19)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 9.5F, System.Drawing.FontStyle.Bold);
-            this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
-            this.button4.Location = new System.Drawing.Point(1455, 606);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(114, 29);
-            this.button4.TabIndex = 48;
-            this.button4.Text = "COLOR";
-            this.button4.UseVisualStyleBackColor = false;
+            this.btn_StartWatchFromZero.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(138)))), ((int)(((byte)(173)))));
+            this.btn_StartWatchFromZero.FlatAppearance.BorderSize = 0;
+            this.btn_StartWatchFromZero.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_StartWatchFromZero.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 10F, System.Drawing.FontStyle.Bold);
+            this.btn_StartWatchFromZero.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
+            this.btn_StartWatchFromZero.Location = new System.Drawing.Point(912, 74);
+            this.btn_StartWatchFromZero.Name = "btn_StartWatchFromZero";
+            this.btn_StartWatchFromZero.Size = new System.Drawing.Size(135, 28);
+            this.btn_StartWatchFromZero.TabIndex = 44;
+            this.btn_StartWatchFromZero.Text = "00 : 00";
+            this.btn_StartWatchFromZero.UseVisualStyleBackColor = false;
+            this.btn_StartWatchFromZero.Click += new System.EventHandler(this.btn_StartWatchFromZero_Click);
             // 
             // Form1
             // 
@@ -867,7 +895,7 @@
             this.Controls.Add(this.btn_IncMin);
             this.Controls.Add(this.btn_DecMin);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.button12);
+            this.Controls.Add(this.btn_Team2LeeresTOR);
             this.Controls.Add(this.btn_TopTeam2Timeout);
             this.Controls.Add(this.button14);
             this.Controls.Add(this.button15);
@@ -881,7 +909,7 @@
             this.Controls.Add(this.btn_Team1Inc);
             this.Controls.Add(this.btn_Team1Dec);
             this.Controls.Add(this.button9);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btn_Team1LeeresTOR);
             this.Controls.Add(this.btn_TopTeam1Timeout);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.panel1);
@@ -894,14 +922,14 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
             this.pnl_Team2TImePlenty.ResumeLayout(false);
             this.pnl_Team2TImePlenty.PerformLayout();
             this.pnl_Team1TImePlenty.ResumeLayout(false);
             this.pnl_Team1TImePlenty.PerformLayout();
-            this.panel10.ResumeLayout(false);
-            this.panel10.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.pnl_TopTeam1TImePlenty.ResumeLayout(false);
@@ -920,7 +948,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btn_Team1LeeresTOR;
         private System.Windows.Forms.Button btn_TopTeam1Timeout;
         private System.Windows.Forms.Button btn_Team1Dec;
         private System.Windows.Forms.Button btn_Team1Inc;
@@ -931,7 +959,7 @@
         private System.Windows.Forms.Button btn_Team2Inc;
         private System.Windows.Forms.Button btn_Team2Dec;
         private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button btn_Team2LeeresTOR;
         private System.Windows.Forms.Button btn_TopTeam2Timeout;
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.Button button15;
@@ -973,7 +1001,9 @@
         private System.Windows.Forms.Button btn_StartWatchFrom30;
         private System.Windows.Forms.Button btn_StartWatchFromZero;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btn_START;
+        private System.Windows.Forms.Panel pnl_Team1Color;
+        private System.Windows.Forms.Panel pnl_Team2Color;
     }
 }
 
