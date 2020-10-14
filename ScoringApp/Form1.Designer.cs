@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.displayTeam2Stack = new System.Windows.Forms.FlowLayoutPanel();
+            this.displayTeam1Stack = new System.Windows.Forms.FlowLayoutPanel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.lab_Goal = new System.Windows.Forms.Label();
             this.pnl_Team2Color = new System.Windows.Forms.Panel();
@@ -39,10 +41,6 @@
             this.btn_BottomTeam1Timeout = new System.Windows.Forms.Button();
             this.panel13 = new System.Windows.Forms.Panel();
             this.lab_BottomClock = new System.Windows.Forms.Label();
-            this.pnl_Team2TImePlenty = new System.Windows.Forms.Panel();
-            this.lab_Team2BottomTimePlenty = new System.Windows.Forms.Label();
-            this.pnl_Team1TImePlenty = new System.Windows.Forms.Panel();
-            this.lab_Team1BottomTimePlenty = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
@@ -68,34 +66,26 @@
             this.btn_IncMin = new System.Windows.Forms.Button();
             this.btn_IncSec = new System.Windows.Forms.Button();
             this.btn_DecSec = new System.Windows.Forms.Button();
-            this.pnl_TopTeam1TImePlenty = new System.Windows.Forms.Panel();
-            this.lab_Team1TopTimePlenty = new System.Windows.Forms.Label();
-            this.pnl_TopTeam2TImePlenty = new System.Windows.Forms.Panel();
-            this.lab_Team2TopTimePlenty = new System.Windows.Forms.Label();
-            this.btn_Team1StopPlenty = new System.Windows.Forms.Button();
-            this.btn_Team2StopPlenty = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.StopWatch = new System.Windows.Forms.Timer(this.components);
             this.btn_Team1TimePlenty = new System.Windows.Forms.Button();
             this.btn_Team2TimePlenty = new System.Windows.Forms.Button();
-            this.Team1TimePlentyTimer = new System.Windows.Forms.Timer(this.components);
-            this.Team2TimePlentyTimer = new System.Windows.Forms.Timer(this.components);
             this.btn_HalfTime_Results = new System.Windows.Forms.Button();
             this.btn_Results = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.controlTeam2Stack = new System.Windows.Forms.FlowLayoutPanel();
+            this.controlTeam1Stack = new System.Windows.Forms.FlowLayoutPanel();
             this.btn_START = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.btn_ToSave = new System.Windows.Forms.Button();
             this.btn_StartWatchFrom30 = new System.Windows.Forms.Button();
             this.btn_StartWatchFromZero = new System.Windows.Forms.Button();
-            this.displayTeam1Stack = new System.Windows.Forms.FlowLayoutPanel();
+            this.stackTimer1 = new System.Windows.Forms.Timer(this.components);
+            this.stackTimer2 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel13.SuspendLayout();
-            this.pnl_Team2TImePlenty.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.pnl_TopTeam1TImePlenty.SuspendLayout();
-            this.pnl_TopTeam2TImePlenty.SuspendLayout();
             this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -118,8 +108,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Lime;
-            this.panel1.Controls.Add(this.lab_Team1BottomTimePlenty);
-            this.panel1.Controls.Add(this.pnl_Team1TImePlenty);
+            this.panel1.Controls.Add(this.displayTeam2Stack);
             this.panel1.Controls.Add(this.displayTeam1Stack);
             this.panel1.Controls.Add(this.panel10);
             this.panel1.Controls.Add(this.pnl_Team2Color);
@@ -127,7 +116,6 @@
             this.panel1.Controls.Add(this.btn_BottomTeam2Timeout);
             this.panel1.Controls.Add(this.btn_BottomTeam1Timeout);
             this.panel1.Controls.Add(this.panel13);
-            this.panel1.Controls.Add(this.pnl_Team2TImePlenty);
             this.panel1.Controls.Add(this.textBox4);
             this.panel1.Controls.Add(this.textBox3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -135,6 +123,25 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1586, 252);
             this.panel1.TabIndex = 1;
+            // 
+            // displayTeam2Stack
+            // 
+            this.displayTeam2Stack.FlowDirection = System.Windows.Forms.FlowDirection.BottomUp;
+            this.displayTeam2Stack.Location = new System.Drawing.Point(1026, 3);
+            this.displayTeam2Stack.Name = "displayTeam2Stack";
+            this.displayTeam2Stack.Padding = new System.Windows.Forms.Padding(55, 0, 0, 0);
+            this.displayTeam2Stack.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.displayTeam2Stack.Size = new System.Drawing.Size(183, 152);
+            this.displayTeam2Stack.TabIndex = 45;
+            // 
+            // displayTeam1Stack
+            // 
+            this.displayTeam1Stack.FlowDirection = System.Windows.Forms.FlowDirection.BottomUp;
+            this.displayTeam1Stack.Location = new System.Drawing.Point(380, 3);
+            this.displayTeam1Stack.Name = "displayTeam1Stack";
+            this.displayTeam1Stack.Size = new System.Drawing.Size(183, 152);
+            this.displayTeam1Stack.TabIndex = 44;
+            this.displayTeam1Stack.Paint += new System.Windows.Forms.PaintEventHandler(this.displayTeam1Stack_Paint);
             // 
             // panel10
             // 
@@ -229,48 +236,6 @@
             this.lab_BottomClock.TabIndex = 15;
             this.lab_BottomClock.Text = "00 : 00";
             this.lab_BottomClock.Click += new System.EventHandler(this.label4_Click);
-            // 
-            // pnl_Team2TImePlenty
-            // 
-            this.pnl_Team2TImePlenty.BackColor = System.Drawing.Color.White;
-            this.pnl_Team2TImePlenty.Controls.Add(this.lab_Team2BottomTimePlenty);
-            this.pnl_Team2TImePlenty.Location = new System.Drawing.Point(1215, 125);
-            this.pnl_Team2TImePlenty.Name = "pnl_Team2TImePlenty";
-            this.pnl_Team2TImePlenty.Size = new System.Drawing.Size(122, 29);
-            this.pnl_Team2TImePlenty.TabIndex = 39;
-            this.pnl_Team2TImePlenty.Visible = false;
-            // 
-            // lab_Team2BottomTimePlenty
-            // 
-            this.lab_Team2BottomTimePlenty.AutoSize = true;
-            this.lab_Team2BottomTimePlenty.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
-            this.lab_Team2BottomTimePlenty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
-            this.lab_Team2BottomTimePlenty.Location = new System.Drawing.Point(23, 3);
-            this.lab_Team2BottomTimePlenty.Name = "lab_Team2BottomTimePlenty";
-            this.lab_Team2BottomTimePlenty.Size = new System.Drawing.Size(72, 24);
-            this.lab_Team2BottomTimePlenty.TabIndex = 18;
-            this.lab_Team2BottomTimePlenty.Text = "02 : 00";
-            // 
-            // pnl_Team1TImePlenty
-            // 
-            this.pnl_Team1TImePlenty.BackColor = System.Drawing.Color.White;
-            this.pnl_Team1TImePlenty.Location = new System.Drawing.Point(231, 125);
-            this.pnl_Team1TImePlenty.Name = "pnl_Team1TImePlenty";
-            this.pnl_Team1TImePlenty.Size = new System.Drawing.Size(122, 29);
-            this.pnl_Team1TImePlenty.TabIndex = 38;
-            this.pnl_Team1TImePlenty.Visible = false;
-            // 
-            // lab_Team1BottomTimePlenty
-            // 
-            this.lab_Team1BottomTimePlenty.BackColor = System.Drawing.Color.White;
-            this.lab_Team1BottomTimePlenty.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
-            this.lab_Team1BottomTimePlenty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
-            this.lab_Team1BottomTimePlenty.Location = new System.Drawing.Point(227, 79);
-            this.lab_Team1BottomTimePlenty.Name = "lab_Team1BottomTimePlenty";
-            this.lab_Team1BottomTimePlenty.Size = new System.Drawing.Size(122, 34);
-            this.lab_Team1BottomTimePlenty.TabIndex = 16;
-            this.lab_Team1BottomTimePlenty.Text = "02 : 00";
-            this.lab_Team1BottomTimePlenty.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // textBox4
             // 
@@ -623,82 +588,6 @@
             this.btn_DecSec.UseVisualStyleBackColor = false;
             this.btn_DecSec.Click += new System.EventHandler(this.btn_DecSec_Click);
             // 
-            // pnl_TopTeam1TImePlenty
-            // 
-            this.pnl_TopTeam1TImePlenty.BackColor = System.Drawing.Color.White;
-            this.pnl_TopTeam1TImePlenty.Controls.Add(this.lab_Team1TopTimePlenty);
-            this.pnl_TopTeam1TImePlenty.Location = new System.Drawing.Point(380, 274);
-            this.pnl_TopTeam1TImePlenty.Name = "pnl_TopTeam1TImePlenty";
-            this.pnl_TopTeam1TImePlenty.Size = new System.Drawing.Size(122, 33);
-            this.pnl_TopTeam1TImePlenty.TabIndex = 37;
-            this.pnl_TopTeam1TImePlenty.Visible = false;
-            // 
-            // lab_Team1TopTimePlenty
-            // 
-            this.lab_Team1TopTimePlenty.AutoSize = true;
-            this.lab_Team1TopTimePlenty.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
-            this.lab_Team1TopTimePlenty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
-            this.lab_Team1TopTimePlenty.Location = new System.Drawing.Point(24, 4);
-            this.lab_Team1TopTimePlenty.Name = "lab_Team1TopTimePlenty";
-            this.lab_Team1TopTimePlenty.Size = new System.Drawing.Size(72, 24);
-            this.lab_Team1TopTimePlenty.TabIndex = 17;
-            this.lab_Team1TopTimePlenty.Text = "02 : 00";
-            // 
-            // pnl_TopTeam2TImePlenty
-            // 
-            this.pnl_TopTeam2TImePlenty.BackColor = System.Drawing.Color.White;
-            this.pnl_TopTeam2TImePlenty.Controls.Add(this.lab_Team2TopTimePlenty);
-            this.pnl_TopTeam2TImePlenty.Location = new System.Drawing.Point(862, 274);
-            this.pnl_TopTeam2TImePlenty.Name = "pnl_TopTeam2TImePlenty";
-            this.pnl_TopTeam2TImePlenty.Size = new System.Drawing.Size(122, 33);
-            this.pnl_TopTeam2TImePlenty.TabIndex = 38;
-            this.pnl_TopTeam2TImePlenty.Visible = false;
-            // 
-            // lab_Team2TopTimePlenty
-            // 
-            this.lab_Team2TopTimePlenty.AutoSize = true;
-            this.lab_Team2TopTimePlenty.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
-            this.lab_Team2TopTimePlenty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
-            this.lab_Team2TopTimePlenty.Location = new System.Drawing.Point(20, 4);
-            this.lab_Team2TopTimePlenty.Name = "lab_Team2TopTimePlenty";
-            this.lab_Team2TopTimePlenty.Size = new System.Drawing.Size(72, 24);
-            this.lab_Team2TopTimePlenty.TabIndex = 18;
-            this.lab_Team2TopTimePlenty.Text = "02 : 00";
-            // 
-            // btn_Team1StopPlenty
-            // 
-            this.btn_Team1StopPlenty.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(135)))), ((int)(((byte)(171)))));
-            this.btn_Team1StopPlenty.FlatAppearance.BorderSize = 0;
-            this.btn_Team1StopPlenty.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Team1StopPlenty.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.btn_Team1StopPlenty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
-            this.btn_Team1StopPlenty.Location = new System.Drawing.Point(508, 274);
-            this.btn_Team1StopPlenty.Name = "btn_Team1StopPlenty";
-            this.btn_Team1StopPlenty.Size = new System.Drawing.Size(42, 24);
-            this.btn_Team1StopPlenty.TabIndex = 39;
-            this.btn_Team1StopPlenty.Text = "X";
-            this.btn_Team1StopPlenty.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_Team1StopPlenty.UseVisualStyleBackColor = false;
-            this.btn_Team1StopPlenty.Visible = false;
-            this.btn_Team1StopPlenty.Click += new System.EventHandler(this.btn_Team1StopPlenty_Click);
-            // 
-            // btn_Team2StopPlenty
-            // 
-            this.btn_Team2StopPlenty.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(135)))), ((int)(((byte)(171)))));
-            this.btn_Team2StopPlenty.FlatAppearance.BorderSize = 0;
-            this.btn_Team2StopPlenty.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Team2StopPlenty.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.btn_Team2StopPlenty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
-            this.btn_Team2StopPlenty.Location = new System.Drawing.Point(988, 274);
-            this.btn_Team2StopPlenty.Name = "btn_Team2StopPlenty";
-            this.btn_Team2StopPlenty.Size = new System.Drawing.Size(42, 24);
-            this.btn_Team2StopPlenty.TabIndex = 40;
-            this.btn_Team2StopPlenty.Text = "X";
-            this.btn_Team2StopPlenty.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_Team2StopPlenty.UseVisualStyleBackColor = false;
-            this.btn_Team2StopPlenty.Visible = false;
-            this.btn_Team2StopPlenty.Click += new System.EventHandler(this.btn_Team2StopPlenty_Click);
-            // 
             // button9
             // 
             this.button9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(47)))), ((int)(((byte)(19)))));
@@ -750,16 +639,6 @@
             this.btn_Team2TimePlenty.UseVisualStyleBackColor = false;
             this.btn_Team2TimePlenty.Click += new System.EventHandler(this.btn_Team2TimePlenty_Click);
             // 
-            // Team1TimePlentyTimer
-            // 
-            this.Team1TimePlentyTimer.Interval = 1000;
-            this.Team1TimePlentyTimer.Tick += new System.EventHandler(this.Team1TimePlentyTimer_Tick);
-            // 
-            // Team2TimePlentyTimer
-            // 
-            this.Team2TimePlentyTimer.Interval = 1000;
-            this.Team2TimePlentyTimer.Tick += new System.EventHandler(this.Team2TimePlentyTimer_Tick);
-            // 
             // btn_HalfTime_Results
             // 
             this.btn_HalfTime_Results.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(138)))), ((int)(((byte)(173)))));
@@ -792,9 +671,11 @@
             // panel8
             // 
             this.panel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel8.Controls.Add(this.btn_ToSave);
+            this.panel8.Controls.Add(this.controlTeam2Stack);
+            this.panel8.Controls.Add(this.controlTeam1Stack);
             this.panel8.Controls.Add(this.btn_START);
             this.panel8.Controls.Add(this.label4);
-            this.panel8.Controls.Add(this.btn_ToSave);
             this.panel8.Controls.Add(this.btn_StartWatchFrom30);
             this.panel8.Controls.Add(this.btn_StartWatchFromZero);
             this.panel8.Controls.Add(this.btn_Results);
@@ -805,6 +686,24 @@
             this.panel8.Size = new System.Drawing.Size(1586, 905);
             this.panel8.TabIndex = 43;
             this.panel8.Paint += new System.Windows.Forms.PaintEventHandler(this.panel8_Paint);
+            // 
+            // controlTeam2Stack
+            // 
+            this.controlTeam2Stack.FlowDirection = System.Windows.Forms.FlowDirection.BottomUp;
+            this.controlTeam2Stack.Location = new System.Drawing.Point(1026, 168);
+            this.controlTeam2Stack.Name = "controlTeam2Stack";
+            this.controlTeam2Stack.Padding = new System.Windows.Forms.Padding(55, 0, 0, 0);
+            this.controlTeam2Stack.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.controlTeam2Stack.Size = new System.Drawing.Size(183, 152);
+            this.controlTeam2Stack.TabIndex = 46;
+            // 
+            // controlTeam1Stack
+            // 
+            this.controlTeam1Stack.FlowDirection = System.Windows.Forms.FlowDirection.BottomUp;
+            this.controlTeam1Stack.Location = new System.Drawing.Point(380, 168);
+            this.controlTeam1Stack.Name = "controlTeam1Stack";
+            this.controlTeam1Stack.Size = new System.Drawing.Size(183, 152);
+            this.controlTeam1Stack.TabIndex = 45;
             // 
             // btn_START
             // 
@@ -878,13 +777,15 @@
             this.btn_StartWatchFromZero.UseVisualStyleBackColor = false;
             this.btn_StartWatchFromZero.Click += new System.EventHandler(this.btn_StartWatchFromZero_Click);
             // 
-            // displayTeam1Stack
+            // stackTimer1
             // 
-            this.displayTeam1Stack.FlowDirection = System.Windows.Forms.FlowDirection.BottomUp;
-            this.displayTeam1Stack.Location = new System.Drawing.Point(380, 3);
-            this.displayTeam1Stack.Name = "displayTeam1Stack";
-            this.displayTeam1Stack.Size = new System.Drawing.Size(183, 152);
-            this.displayTeam1Stack.TabIndex = 44;
+            this.stackTimer1.Interval = 1000;
+            this.stackTimer1.Tick += new System.EventHandler(this.stackTimer_Tick);
+            // 
+            // stackTimer2
+            // 
+            this.stackTimer2.Interval = 1000;
+            this.stackTimer2.Tick += new System.EventHandler(this.stackTimer2_Tick);
             // 
             // Form1
             // 
@@ -895,10 +796,6 @@
             this.ClientSize = new System.Drawing.Size(1586, 905);
             this.Controls.Add(this.btn_Team2TimePlenty);
             this.Controls.Add(this.btn_Team1TimePlenty);
-            this.Controls.Add(this.btn_Team2StopPlenty);
-            this.Controls.Add(this.btn_Team1StopPlenty);
-            this.Controls.Add(this.pnl_TopTeam2TImePlenty);
-            this.Controls.Add(this.pnl_TopTeam1TImePlenty);
             this.Controls.Add(this.btn_IncSec);
             this.Controls.Add(this.btn_DecSec);
             this.Controls.Add(this.btn_Reset);
@@ -936,14 +833,8 @@
             this.panel10.PerformLayout();
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
-            this.pnl_Team2TImePlenty.ResumeLayout(false);
-            this.pnl_Team2TImePlenty.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.pnl_TopTeam1TImePlenty.ResumeLayout(false);
-            this.pnl_TopTeam1TImePlenty.PerformLayout();
-            this.pnl_TopTeam2TImePlenty.ResumeLayout(false);
-            this.pnl_TopTeam2TImePlenty.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.ResumeLayout(false);
@@ -980,14 +871,7 @@
         private System.Windows.Forms.Button btn_IncMin;
         private System.Windows.Forms.Button btn_IncSec;
         private System.Windows.Forms.Button btn_DecSec;
-        private System.Windows.Forms.Panel pnl_TopTeam1TImePlenty;
-        private System.Windows.Forms.Panel pnl_TopTeam2TImePlenty;
-        private System.Windows.Forms.Button btn_Team1StopPlenty;
-        private System.Windows.Forms.Button btn_Team2StopPlenty;
         private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.Panel pnl_Team2TImePlenty;
-        private System.Windows.Forms.Panel pnl_Team1TImePlenty;
-        private System.Windows.Forms.Button btn_BottomTeam2Timeout;
         private System.Windows.Forms.Button btn_BottomTeam1Timeout;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Label lab_BottomClock;
@@ -996,12 +880,6 @@
         private System.Windows.Forms.Label lab_TopClock;
         private System.Windows.Forms.Button btn_Team1TimePlenty;
         private System.Windows.Forms.Button btn_Team2TimePlenty;
-        private System.Windows.Forms.Label lab_Team1BottomTimePlenty;
-        private System.Windows.Forms.Label lab_Team1TopTimePlenty;
-        public System.Windows.Forms.Timer Team1TimePlentyTimer;
-        private System.Windows.Forms.Timer Team2TimePlentyTimer;
-        private System.Windows.Forms.Label lab_Team2BottomTimePlenty;
-        private System.Windows.Forms.Label lab_Team2TopTimePlenty;
         private System.Windows.Forms.Button btn_HalfTime_Results;
         private System.Windows.Forms.Button btn_Results;
         private System.Windows.Forms.Panel panel8;
@@ -1013,6 +891,12 @@
         private System.Windows.Forms.Panel pnl_Team1Color;
         private System.Windows.Forms.Panel pnl_Team2Color;
         private System.Windows.Forms.FlowLayoutPanel displayTeam1Stack;
+        private System.Windows.Forms.Timer stackTimer1;
+        private System.Windows.Forms.Button btn_BottomTeam2Timeout;
+        private System.Windows.Forms.FlowLayoutPanel controlTeam1Stack;
+        private System.Windows.Forms.FlowLayoutPanel displayTeam2Stack;
+        private System.Windows.Forms.FlowLayoutPanel controlTeam2Stack;
+        private System.Windows.Forms.Timer stackTimer2;
     }
 }
 

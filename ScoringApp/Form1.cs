@@ -12,14 +12,19 @@ namespace ScoringApp
 {
     public partial class Form1 : Form
     {
-        //
+        public class penaltyTimerTable 
+        {
+            public Label label;
+            public int min;
+            public int sec;
+        }
+
+        List<penaltyTimerTable> timerTable1 = new List<penaltyTimerTable>();
+        List<penaltyTimerTable> timerTable2 = new List<penaltyTimerTable>();
+
         int Team1Goal = 0, Team2Goal = 0;
 
         int min = 0, sec = 0;
-
-        //for Time Plenty
-        int T1min = 1, T1sec = 60;
-        int T2min = 1, T2sec = 60;
 
         //Timeout
         bool team1Timeout = false, team2Timeout = false;
@@ -30,9 +35,8 @@ namespace ScoringApp
             if (team1Timeout == true && team2Timeout == true)
             {
                 StopWatch.Stop();
-                Team1TimePlentyTimer.Stop();
-                Team2TimePlentyTimer.Stop();
-
+                stackTimer1.Stop();
+                stackTimer2.Stop();
             }
         }
 
@@ -107,56 +111,58 @@ namespace ScoringApp
         {
             if (displayTeam1Stack.Controls.Count < 4) 
             {
-                Label penaltyLabel = new Label();
-                penaltyLabel.AutoSize = false;
-                penaltyLabel.BorderStyle = BorderStyle.FixedSingle;
-                penaltyLabel.Size = new Size(122, 29);
-                penaltyLabel.BackColor = Color.White;
-                penaltyLabel.ForeColor = Color.FromArgb(24, 48, 104);
-                penaltyLabel.TextAlign = ContentAlignment.MiddleCenter;
-                penaltyLabel.Font = new Font("ITC Avant Garde Std Md", 14f, FontStyle.Bold);
-                AssignAddress(penaltyLabel, displayTeam1Stack);
-                penaltyLabel.Text = penaltyLabel.Tag.ToString();
-                penaltyLabel.Click += new EventHandler(penaltyLabel_Click);
-                displayTeam1Stack.Controls.Add(penaltyLabel);
+                Label controlPenaltyLabel = new Label();
+                controlPenaltyLabel.AutoSize = false;
+                controlPenaltyLabel.BorderStyle = BorderStyle.FixedSingle;
+                controlPenaltyLabel.Size = new Size(122, 29);
+                controlPenaltyLabel.BackColor = Color.White;
+                controlPenaltyLabel.ForeColor = Color.FromArgb(24, 48, 104);
+                controlPenaltyLabel.TextAlign = ContentAlignment.MiddleCenter;
+                controlPenaltyLabel.Font = new Font("ITC Avant Garde Std Md", 14f, FontStyle.Bold);
+                AssignAddress(controlPenaltyLabel, controlTeam1Stack);
+                controlPenaltyLabel.Text = "02 : 00";
+                controlPenaltyLabel.Click += new EventHandler(penaltyLabel_Click1);
+                controlTeam1Stack.Controls.Add(controlPenaltyLabel);
 
-                Timer timer = new Timer();
-                timer.Tag = penaltyLabel.Tag.ToString();
-                timer.Interval = 1000;
-                timer.Tick += new EventHandler(timer_Tick);
+                Label displayPenaltyLabel = new Label();
+                displayPenaltyLabel.AutoSize = false;
+                displayPenaltyLabel.BorderStyle = BorderStyle.FixedSingle;
+                displayPenaltyLabel.Size = new Size(122, 29);
+                displayPenaltyLabel.BackColor = Color.White;
+                displayPenaltyLabel.ForeColor = Color.FromArgb(24, 48, 104);
+                displayPenaltyLabel.TextAlign = ContentAlignment.MiddleCenter;
+                displayPenaltyLabel.Font = new Font("ITC Avant Garde Std Md", 14f, FontStyle.Bold);
+                displayPenaltyLabel.Tag = controlPenaltyLabel.Tag;
+                displayPenaltyLabel.Text = "02 : 00";
+                displayTeam1Stack.Controls.Add(displayPenaltyLabel);
+
+                penaltyTimerTable timerRow = new penaltyTimerTable();
+                timerRow.label = controlPenaltyLabel;
+                timerRow.sec = 0; 
+                timerRow.min = 2;
+                timerTable1.Add(timerRow);
+
+                stackTimer1.Enabled = true;
+                stackTimer1.Start();
             }
-
-            //pnl_Team1TImePlenty.Visible = true;
-            //pnl_TopTeam1TImePlenty.Visible = true;
-            //btn_Team1StopPlenty.Visible = true;
-
-            //Team1TimePlentyTimer.Start();
-
         }
 
-        private void timer_Tick(object sender, EventArgs e)
+        private void penaltyLabel_Click1(object sender, EventArgs e)
         {
-            if (T1sec != 0)
+            string tag = (sender as Label).Tag.ToString();
+            controlTeam1Stack.Controls.Remove((Label)sender);
+            foreach (Control control in displayTeam1Stack.Controls) 
             {
-                T1sec--;
+                if (tag == control.Tag.ToString()) 
+                {
+                    displayTeam1Stack.Controls.Remove(control);
+                    break;
+                }
             }
-            else if (T1min != 0)
+            if (controlTeam1Stack.Controls.Count <= 0) 
             {
-                T1sec = 59;
-                T1min--;
+                stackTimer1.Stop();
             }
-            else if (T1sec == 0 && T1min == 0)
-            {
-                Team1TimePlentyTimer.Stop();
-
-            }
-            lab_Team1TopTimePlenty.Text = T1min.ToString("#00") + " : " + T1sec.ToString("#00");
-            lab_Team1BottomTimePlenty.Text = T1min.ToString("#00") + " : " + T1sec.ToString("#00");
-        }
-
-        private void penaltyLabel_Click(object sender, EventArgs e)
-        {
-            displayTeam1Stack.Controls.Remove((Label)sender);
         }
 
         private void AssignAddress(Label label, FlowLayoutPanel panel)
@@ -181,41 +187,62 @@ namespace ScoringApp
             }
         }
 
-        private void btn_Team1StopPlenty_Click(object sender, EventArgs e)
-        {
-            pnl_Team1TImePlenty.Visible = false;
-            pnl_TopTeam1TImePlenty.Visible = false;
-            btn_Team1StopPlenty.Visible = false;
-
-            Team1TimePlentyTimer.Stop();
-            T1min = 1;
-            T1sec = 60;
-            lab_Team1TopTimePlenty.Text = "02 : 00";
-            lab_Team1BottomTimePlenty.Text = "02 : 00";
-
-
-        }
-
         private void btn_Team2TimePlenty_Click(object sender, EventArgs e)
         {
-            pnl_Team2TImePlenty.Visible = true;
-            pnl_TopTeam2TImePlenty.Visible = true;
-            btn_Team2StopPlenty.Visible = true;
+            if (displayTeam2Stack.Controls.Count < 4)
+            {
+                Label controlPenaltyLabel = new Label();
+                controlPenaltyLabel.AutoSize = false;
+                controlPenaltyLabel.BorderStyle = BorderStyle.FixedSingle;
+                controlPenaltyLabel.Size = new Size(122, 29);
+                controlPenaltyLabel.BackColor = Color.White;
+                controlPenaltyLabel.ForeColor = Color.FromArgb(24, 48, 104);
+                controlPenaltyLabel.TextAlign = ContentAlignment.MiddleCenter;
+                controlPenaltyLabel.Font = new Font("ITC Avant Garde Std Md", 14f, FontStyle.Bold);
+                AssignAddress(controlPenaltyLabel, controlTeam2Stack);
+                controlPenaltyLabel.Text = "02 : 00";
+                controlPenaltyLabel.Click += new EventHandler(penaltyLabel_Click2);
+                controlTeam2Stack.Controls.Add(controlPenaltyLabel);
 
-            Team2TimePlentyTimer.Start();
+                Label displayPenaltyLabel = new Label();
+                displayPenaltyLabel.AutoSize = false;
+                displayPenaltyLabel.BorderStyle = BorderStyle.FixedSingle;
+                displayPenaltyLabel.Size = new Size(122, 29);
+                displayPenaltyLabel.BackColor = Color.White;
+                displayPenaltyLabel.ForeColor = Color.FromArgb(24, 48, 104);
+                displayPenaltyLabel.TextAlign = ContentAlignment.MiddleCenter;
+                displayPenaltyLabel.Font = new Font("ITC Avant Garde Std Md", 14f, FontStyle.Bold);
+                displayPenaltyLabel.Tag = controlPenaltyLabel.Tag;
+                displayPenaltyLabel.Text = "02 : 00";
+                displayTeam2Stack.Controls.Add(displayPenaltyLabel);
 
+                penaltyTimerTable timerRow = new penaltyTimerTable();
+                timerRow.label = controlPenaltyLabel;
+                timerRow.sec = 0;
+                timerRow.min = 2;
+                timerTable2.Add(timerRow);
+
+                stackTimer2.Enabled = true;
+                stackTimer2.Start();
+            }
         }
-        private void btn_Team2StopPlenty_Click(object sender, EventArgs e)
-        {
-            pnl_Team2TImePlenty.Visible = false;
-            pnl_TopTeam2TImePlenty.Visible = false;
-            btn_Team2StopPlenty.Visible = false;
 
-            Team1TimePlentyTimer.Stop();
-            T2min = 1;
-            T2sec = 60;
-            lab_Team2TopTimePlenty.Text = "02 : 00";
-            lab_Team2BottomTimePlenty.Text = "02 : 00";
+        private void penaltyLabel_Click2(object sender, EventArgs e)
+        {
+            string tag = (sender as Label).Tag.ToString();
+            controlTeam2Stack.Controls.Remove((Label)sender);
+            foreach (Control control in displayTeam2Stack.Controls)
+            {
+                if (tag == control.Tag.ToString())
+                {
+                    displayTeam2Stack.Controls.Remove(control);
+                    break;
+                }
+            }
+            if (controlTeam2Stack.Controls.Count <= 0)
+            {
+                stackTimer2.Stop();
+            }
         }
 
         private void btn_BottomTeam1Timeout_Click(object sender, EventArgs e)
@@ -367,52 +394,74 @@ namespace ScoringApp
             lab_BottomClock.Text = min.ToString("#00") + " : " + sec.ToString("#00");
         }
 
+        private void stackTimer_Tick(object sender, EventArgs e)
+        {
+            foreach (penaltyTimerTable timerRow in timerTable1) 
+            {
+                if (timerRow.sec != 0)
+                {
+                    timerRow.sec--;
+                }
+                else if (timerRow.min != 0)
+                {
+                    timerRow.sec = 59;
+                    timerRow.min--;
+                }
+                else if (timerRow.sec == 0 && timerRow.min == 0)
+                {
+                    //Do nothing
+                }
+                timerRow.label.Text = timerRow.min.ToString("#00") + " : " + timerRow.sec.ToString("#00");
+                foreach (Control control in displayTeam1Stack.Controls) 
+                {
+                    if (timerRow.label.Tag.ToString() == control.Tag.ToString()) 
+                    {
+                        control.Text = timerRow.label.Text;
+                        break;
+                    }
+                }
+            }
+        }
+
+        private void displayTeam1Stack_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void stackTimer2_Tick(object sender, EventArgs e)
+        {
+            foreach (penaltyTimerTable timerRow in timerTable2)
+            {
+                if (timerRow.sec != 0)
+                {
+                    timerRow.sec--;
+                }
+                else if (timerRow.min != 0)
+                {
+                    timerRow.sec = 59;
+                    timerRow.min--;
+                }
+                else if (timerRow.sec == 0 && timerRow.min == 0)
+                {
+                    //Do nothing
+                }
+                timerRow.label.Text = timerRow.min.ToString("#00") + " : " + timerRow.sec.ToString("#00");
+                foreach (Control control in displayTeam2Stack.Controls)
+                {
+                    if (timerRow.label.Tag.ToString() == control.Tag.ToString())
+                    {
+                        control.Text = timerRow.label.Text;
+                        break;
+                    }
+                }
+            }
+        }
+
         private void btn_StartWatchFromZero_Click(object sender, EventArgs e)
         {
             lab_TopClock.Text = "00  :  00";
             min = 0;
             sec = 0;
-
-        }
-
-        private void Team2TimePlentyTimer_Tick(object sender, EventArgs e)
-        {
-            if (T2sec != 0)
-            {
-                T2sec--;
-            }
-            else if (T2min != 0)
-            {
-                T2sec = 59;
-                T2min--;
-            }
-            else if (T2sec == 0 && T2min == 0)
-            {
-                Team2TimePlentyTimer.Stop();
-
-            }
-            lab_Team2TopTimePlenty.Text = T2min.ToString("#00") + " : " + T2sec.ToString("#00");
-            lab_Team2BottomTimePlenty.Text = T2min.ToString("#00") + " : " + T2sec.ToString("#00");
-        }
-
-        private void Team1TimePlentyTimer_Tick(object sender, EventArgs e)
-        {
-            if (T1sec != 0)
-            {
-                T1sec--;
-            }
-            else if (T1min != 0)
-            {
-                T1sec = 59;
-                T1min--;
-            }
-            else if (T1sec == 0 && T1min == 0)
-            {
-                Team1TimePlentyTimer.Stop();
-
-            }
-            lab_Team1TopTimePlenty.Text = T1min.ToString("#00") + " : " + T1sec.ToString("#00");
-            lab_Team1BottomTimePlenty.Text = T1min.ToString("#00") + " : " + T1sec.ToString("#00");
 
         }
 
