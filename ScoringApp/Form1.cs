@@ -162,6 +162,7 @@ namespace ScoringApp
             if (controlTeam1Stack.Controls.Count <= 0) 
             {
                 stackTimer1.Stop();
+                timerTable1.Clear();
             }
         }
 
@@ -242,6 +243,7 @@ namespace ScoringApp
             if (controlTeam2Stack.Controls.Count <= 0)
             {
                 stackTimer2.Stop();
+                timerTable2.Clear();
             }
         }
 
