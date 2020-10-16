@@ -12,7 +12,7 @@ namespace ScoringApp
 {
     public partial class Form1 : Form
     {
-        public class penaltyTimerTable 
+        public class penaltyTimerTable
         {
             public Label label;
             public int min;
@@ -109,7 +109,7 @@ namespace ScoringApp
         }
         private void btn_Team1TimePlenty_Click(object sender, EventArgs e)
         {
-            if (displayTeam1Stack.Controls.Count < 4) 
+            if (displayTeam1Stack.Controls.Count < 4)
             {
                 Label controlPenaltyLabel = new Label();
                 controlPenaltyLabel.AutoSize = false;
@@ -138,12 +138,15 @@ namespace ScoringApp
 
                 penaltyTimerTable timerRow = new penaltyTimerTable();
                 timerRow.label = controlPenaltyLabel;
-                timerRow.sec = 0; 
+                timerRow.sec = 0;
                 timerRow.min = 2;
                 timerTable1.Add(timerRow);
 
-                stackTimer1.Enabled = true;
-                stackTimer1.Start();
+                //stackTimer1.Enabled = true;
+                if (start == true)
+                {
+                    stackTimer1.Start();
+                }
             }
         }
 
@@ -151,15 +154,15 @@ namespace ScoringApp
         {
             string tag = (sender as Label).Tag.ToString();
             controlTeam1Stack.Controls.Remove((Label)sender);
-            foreach (Control control in displayTeam1Stack.Controls) 
+            foreach (Control control in displayTeam1Stack.Controls)
             {
-                if (tag == control.Tag.ToString()) 
+                if (tag == control.Tag.ToString())
                 {
                     displayTeam1Stack.Controls.Remove(control);
                     break;
                 }
             }
-            if (controlTeam1Stack.Controls.Count <= 0) 
+            if (controlTeam1Stack.Controls.Count <= 0)
             {
                 stackTimer1.Stop();
                 timerTable1.Clear();
@@ -169,9 +172,9 @@ namespace ScoringApp
         private void AssignAddress(Label label, FlowLayoutPanel panel)
         {
             bool found = false;
-            for (int i = 0; i < 4; i++) 
+            for (int i = 0; i < 4; i++)
             {
-                foreach (Control control in panel.Controls) 
+                foreach (Control control in panel.Controls)
                 {
                     if ((string)control.Tag == i.ToString())
                     {
@@ -223,8 +226,12 @@ namespace ScoringApp
                 timerRow.min = 2;
                 timerTable2.Add(timerRow);
 
-                stackTimer2.Enabled = true;
-                stackTimer2.Start();
+                // stackTimer2.Enabled = true;
+                if (start == true)
+                {
+                    stackTimer2.Start();
+
+                }
             }
         }
 
@@ -287,12 +294,12 @@ namespace ScoringApp
                 min++;
                 lab_TopClock.Text = min.ToString("#00") + "  :  " + sec.ToString("#00");
             }
-            
+
         }
 
         private void btn_IncSec_Click(object sender, EventArgs e)
         {
-            if (sec<59)
+            if (sec < 59)
             {
                 sec++;
             }
@@ -307,7 +314,7 @@ namespace ScoringApp
 
         private void btn_DecMin_Click(object sender, EventArgs e)
         {
-            if (min>0)
+            if (min > 0)
             {
                 min--;
             }
@@ -316,7 +323,7 @@ namespace ScoringApp
 
         private void btn_DecSec_Click(object sender, EventArgs e)
         {
-            if (sec>0)
+            if (sec > 0)
             {
                 sec--;
             }
@@ -389,6 +396,23 @@ namespace ScoringApp
 
             if (start == true) StopWatch.Start();
             else StopWatch.Stop();
+
+            if (start == false)
+            {
+                stackTimer1.Stop(); stackTimer2.Stop();
+            }
+            if (start == true)
+            {
+                if (displayTeam1Stack.Controls.Count > 0)
+                {
+                    stackTimer1.Start();
+                }
+                if (displayTeam2Stack.Controls.Count > 0)
+                {
+                    stackTimer2.Start();
+                }
+
+            }
         }
 
         private void btn_ToSave_Click(object sender, EventArgs e)
@@ -398,7 +422,7 @@ namespace ScoringApp
 
         private void stackTimer_Tick(object sender, EventArgs e)
         {
-            foreach (penaltyTimerTable timerRow in timerTable1) 
+            foreach (penaltyTimerTable timerRow in timerTable1)
             {
                 if (timerRow.sec != 0)
                 {
@@ -411,12 +435,12 @@ namespace ScoringApp
                 }
                 else if (timerRow.sec == 0 && timerRow.min == 0)
                 {
-                    //Do nothing
+                    //displayTeam1Stack.Controls.Remove(timerRow.label);
                 }
                 timerRow.label.Text = timerRow.min.ToString("#00") + " : " + timerRow.sec.ToString("#00");
-                foreach (Control control in displayTeam1Stack.Controls) 
+                foreach (Control control in displayTeam1Stack.Controls)
                 {
-                    if (timerRow.label.Tag.ToString() == control.Tag.ToString()) 
+                    if (timerRow.label.Tag.ToString() == control.Tag.ToString())
                     {
                         control.Text = timerRow.label.Text;
                         break;
@@ -459,6 +483,28 @@ namespace ScoringApp
             }
         }
 
+        private void controlTeam1Stack_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_UpdateFontSize_Click(object sender, EventArgs e)
+        {
+            int size = Convert.ToInt32(numericUpDown1.Value);
+            txt_Team1Name.Font = new Font(txt_Team1Name.Font.FontFamily, size);
+            txt_Team2Name.Font = new Font(txt_Team1Name.Font.FontFamily, size);
+        }
+
         private void btn_StartWatchFromZero_Click(object sender, EventArgs e)
         {
             lab_TopClock.Text = "00  :  00";
@@ -476,8 +522,8 @@ namespace ScoringApp
                 sec = 0;
             }
             lab_TopClock.Text = min.ToString("#00") + "  :  " + sec.ToString("#00");
-            lab_BottomClock.Text =  min.ToString("#00") + " : " + sec.ToString("#00");
-            if (min ==30 && sec == 0 || min == 60 && sec == 0)
+            lab_BottomClock.Text = min.ToString("#00") + " : " + sec.ToString("#00");
+            if (min == 30 && sec == 0 || min == 60 && sec == 0)
             {
                 StopWatch.Stop();
             }
@@ -485,7 +531,8 @@ namespace ScoringApp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            numericUpDown1.Value = Convert.ToDecimal(txt_Team1Name.Font.Size);
+     
         }
 
 
