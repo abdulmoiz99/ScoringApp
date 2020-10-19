@@ -32,18 +32,17 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lab_Goal = new System.Windows.Forms.Label();
+            this.lab_Team1Name = new System.Windows.Forms.Label();
+            this.lab_Team2Name = new System.Windows.Forms.Label();
             this.displayTeam2Stack = new System.Windows.Forms.FlowLayoutPanel();
             this.displayTeam1Stack = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.lab_Goal = new System.Windows.Forms.Label();
             this.pnl_Team2Color = new System.Windows.Forms.Panel();
             this.pnl_Team1Color = new System.Windows.Forms.Panel();
             this.btn_BottomTeam2Timeout = new System.Windows.Forms.Button();
             this.btn_BottomTeam1Timeout = new System.Windows.Forms.Button();
             this.panel13 = new System.Windows.Forms.Panel();
             this.lab_BottomClock = new System.Windows.Forms.Label();
-            this.txt_Team2Name = new System.Windows.Forms.TextBox();
-            this.txt_Team1Name = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.btn_Team1LeeresTOR = new System.Windows.Forms.Button();
             this.btn_TopTeam1Timeout = new System.Windows.Forms.Button();
@@ -74,6 +73,8 @@
             this.btn_HalfTime_Results = new System.Windows.Forms.Button();
             this.btn_Results = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.txt_team2Name = new System.Windows.Forms.TextBox();
+            this.btn_UpdateFont = new System.Windows.Forms.Button();
             this.btn_ToSave = new System.Windows.Forms.Button();
             this.controlTeam2Stack = new System.Windows.Forms.FlowLayoutPanel();
             this.controlTeam1Stack = new System.Windows.Forms.FlowLayoutPanel();
@@ -81,18 +82,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btn_StartWatchFrom30 = new System.Windows.Forms.Button();
             this.btn_StartWatchFromZero = new System.Windows.Forms.Button();
+            this.txt_Team1Name = new System.Windows.Forms.TextBox();
             this.stackTimer1 = new System.Windows.Forms.Timer(this.components);
             this.stackTimer2 = new System.Windows.Forms.Timer(this.components);
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.btn_UpdateFontSize = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            this.panel10.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel8.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -109,26 +105,66 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "TIME OUT";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Lime;
+            this.panel1.Controls.Add(this.lab_Goal);
+            this.panel1.Controls.Add(this.lab_Team1Name);
+            this.panel1.Controls.Add(this.lab_Team2Name);
             this.panel1.Controls.Add(this.displayTeam2Stack);
             this.panel1.Controls.Add(this.displayTeam1Stack);
-            this.panel1.Controls.Add(this.panel10);
             this.panel1.Controls.Add(this.pnl_Team2Color);
             this.panel1.Controls.Add(this.pnl_Team1Color);
             this.panel1.Controls.Add(this.btn_BottomTeam2Timeout);
             this.panel1.Controls.Add(this.btn_BottomTeam1Timeout);
             this.panel1.Controls.Add(this.panel13);
-            this.panel1.Controls.Add(this.txt_Team2Name);
-            this.panel1.Controls.Add(this.txt_Team1Name);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 653);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1586, 252);
             this.panel1.TabIndex = 1;
+            // 
+            // lab_Goal
+            // 
+            this.lab_Goal.BackColor = System.Drawing.Color.Black;
+            this.lab_Goal.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 24.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lab_Goal.ForeColor = System.Drawing.Color.White;
+            this.lab_Goal.Location = new System.Drawing.Point(725, 160);
+            this.lab_Goal.Name = "lab_Goal";
+            this.lab_Goal.Size = new System.Drawing.Size(140, 53);
+            this.lab_Goal.TabIndex = 16;
+            this.lab_Goal.Text = "0 : 0";
+            this.lab_Goal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lab_Goal.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // lab_Team1Name
+            // 
+            this.lab_Team1Name.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
+            this.lab_Team1Name.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lab_Team1Name.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 20F, System.Drawing.FontStyle.Bold);
+            this.lab_Team1Name.ForeColor = System.Drawing.Color.White;
+            this.lab_Team1Name.Location = new System.Drawing.Point(380, 160);
+            this.lab_Team1Name.Name = "lab_Team1Name";
+            this.lab_Team1Name.Size = new System.Drawing.Size(348, 44);
+            this.lab_Team1Name.TabIndex = 47;
+            this.lab_Team1Name.Text = "TEAM 1";
+            this.lab_Team1Name.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lab_Team2Name
+            // 
+            this.lab_Team2Name.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
+            this.lab_Team2Name.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lab_Team2Name.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 20F, System.Drawing.FontStyle.Bold);
+            this.lab_Team2Name.ForeColor = System.Drawing.Color.White;
+            this.lab_Team2Name.Location = new System.Drawing.Point(861, 160);
+            this.lab_Team2Name.Name = "lab_Team2Name";
+            this.lab_Team2Name.Size = new System.Drawing.Size(348, 44);
+            this.lab_Team2Name.TabIndex = 46;
+            this.lab_Team2Name.Text = "TEAM 2";
+            this.lab_Team2Name.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // displayTeam2Stack
             // 
@@ -148,27 +184,6 @@
             this.displayTeam1Stack.Size = new System.Drawing.Size(183, 152);
             this.displayTeam1Stack.TabIndex = 44;
             this.displayTeam1Stack.Paint += new System.Windows.Forms.PaintEventHandler(this.displayTeam1Stack_Paint);
-            // 
-            // panel10
-            // 
-            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(47)))), ((int)(((byte)(19)))));
-            this.panel10.Controls.Add(this.lab_Goal);
-            this.panel10.Location = new System.Drawing.Point(725, 160);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(140, 55);
-            this.panel10.TabIndex = 26;
-            // 
-            // lab_Goal
-            // 
-            this.lab_Goal.AutoSize = true;
-            this.lab_Goal.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 24.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lab_Goal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
-            this.lab_Goal.Location = new System.Drawing.Point(25, 4);
-            this.lab_Goal.Name = "lab_Goal";
-            this.lab_Goal.Size = new System.Drawing.Size(88, 43);
-            this.lab_Goal.TabIndex = 16;
-            this.lab_Goal.Text = "0 : 0";
-            this.lab_Goal.Click += new System.EventHandler(this.label5_Click);
             // 
             // pnl_Team2Color
             // 
@@ -243,32 +258,6 @@
             this.lab_BottomClock.Text = "00 : 00";
             this.lab_BottomClock.Click += new System.EventHandler(this.label4_Click);
             // 
-            // txt_Team2Name
-            // 
-            this.txt_Team2Name.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
-            this.txt_Team2Name.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_Team2Name.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 20F, System.Drawing.FontStyle.Bold);
-            this.txt_Team2Name.ForeColor = System.Drawing.Color.White;
-            this.txt_Team2Name.Location = new System.Drawing.Point(862, 160);
-            this.txt_Team2Name.Multiline = true;
-            this.txt_Team2Name.Name = "txt_Team2Name";
-            this.txt_Team2Name.Size = new System.Drawing.Size(347, 44);
-            this.txt_Team2Name.TabIndex = 15;
-            this.txt_Team2Name.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txt_Team1Name
-            // 
-            this.txt_Team1Name.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
-            this.txt_Team1Name.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_Team1Name.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 20F, System.Drawing.FontStyle.Bold);
-            this.txt_Team1Name.ForeColor = System.Drawing.Color.White;
-            this.txt_Team1Name.Location = new System.Drawing.Point(380, 160);
-            this.txt_Team1Name.Multiline = true;
-            this.txt_Team1Name.Name = "txt_Team1Name";
-            this.txt_Team1Name.Size = new System.Drawing.Size(347, 44);
-            this.txt_Team1Name.TabIndex = 14;
-            this.txt_Team1Name.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(50)))), ((int)(((byte)(67)))));
@@ -283,6 +272,7 @@
             this.button2.TabIndex = 2;
             this.button2.Text = "LEERES TOR";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Visible = false;
             // 
             // btn_Team1LeeresTOR
             // 
@@ -486,6 +476,7 @@
             this.button14.TabIndex = 22;
             this.button14.Text = "LEERES TOR";
             this.button14.UseVisualStyleBackColor = false;
+            this.button14.Visible = false;
             this.button14.Click += new System.EventHandler(this.button14_Click);
             // 
             // button15
@@ -502,6 +493,7 @@
             this.button15.TabIndex = 21;
             this.button15.Text = "TIME OUT";
             this.button15.UseVisualStyleBackColor = false;
+            this.button15.Visible = false;
             // 
             // panel2
             // 
@@ -683,7 +675,8 @@
             // 
             this.panel8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel8.BackgroundImage")));
             this.panel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel8.Controls.Add(this.groupBox1);
+            this.panel8.Controls.Add(this.txt_team2Name);
+            this.panel8.Controls.Add(this.btn_UpdateFont);
             this.panel8.Controls.Add(this.btn_ToSave);
             this.panel8.Controls.Add(this.controlTeam2Stack);
             this.panel8.Controls.Add(this.controlTeam1Stack);
@@ -691,6 +684,7 @@
             this.panel8.Controls.Add(this.label4);
             this.panel8.Controls.Add(this.btn_StartWatchFrom30);
             this.panel8.Controls.Add(this.btn_StartWatchFromZero);
+            this.panel8.Controls.Add(this.txt_Team1Name);
             this.panel8.Controls.Add(this.btn_Results);
             this.panel8.Controls.Add(this.btn_HalfTime_Results);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -701,6 +695,36 @@
             this.panel8.Size = new System.Drawing.Size(1586, 905);
             this.panel8.TabIndex = 43;
             this.panel8.Paint += new System.Windows.Forms.PaintEventHandler(this.panel8_Paint);
+            // 
+            // txt_team2Name
+            // 
+            this.txt_team2Name.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
+            this.txt_team2Name.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_team2Name.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 20F, System.Drawing.FontStyle.Bold);
+            this.txt_team2Name.ForeColor = System.Drawing.Color.Transparent;
+            this.txt_team2Name.Location = new System.Drawing.Point(862, 509);
+            this.txt_team2Name.Name = "txt_team2Name";
+            this.txt_team2Name.Size = new System.Drawing.Size(347, 35);
+            this.txt_team2Name.TabIndex = 51;
+            this.txt_team2Name.Text = "TEAM 2";
+            this.txt_team2Name.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_team2Name.TextChanged += new System.EventHandler(this.txt_team2Name_TextChanged);
+            // 
+            // btn_UpdateFont
+            // 
+            this.btn_UpdateFont.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(50)))), ((int)(((byte)(67)))));
+            this.btn_UpdateFont.FlatAppearance.BorderSize = 0;
+            this.btn_UpdateFont.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(47)))), ((int)(((byte)(19)))));
+            this.btn_UpdateFont.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_UpdateFont.Font = new System.Drawing.Font("ITC Avant Garde Std Cn", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_UpdateFont.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
+            this.btn_UpdateFont.Location = new System.Drawing.Point(1330, 607);
+            this.btn_UpdateFont.Name = "btn_UpdateFont";
+            this.btn_UpdateFont.Size = new System.Drawing.Size(114, 29);
+            this.btn_UpdateFont.TabIndex = 49;
+            this.btn_UpdateFont.Text = "Font";
+            this.btn_UpdateFont.UseVisualStyleBackColor = false;
+            this.btn_UpdateFont.Click += new System.EventHandler(this.btn_UpdateFontSize_Click);
             // 
             // btn_ToSave
             // 
@@ -795,70 +819,29 @@
             this.btn_StartWatchFromZero.UseVisualStyleBackColor = false;
             this.btn_StartWatchFromZero.Click += new System.EventHandler(this.btn_StartWatchFromZero_Click);
             // 
+            // txt_Team1Name
+            // 
+            this.txt_Team1Name.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
+            this.txt_Team1Name.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_Team1Name.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 20F, System.Drawing.FontStyle.Bold);
+            this.txt_Team1Name.ForeColor = System.Drawing.Color.Transparent;
+            this.txt_Team1Name.Location = new System.Drawing.Point(380, 509);
+            this.txt_Team1Name.Name = "txt_Team1Name";
+            this.txt_Team1Name.Size = new System.Drawing.Size(347, 35);
+            this.txt_Team1Name.TabIndex = 15;
+            this.txt_Team1Name.Text = "TEAM 1";
+            this.txt_Team1Name.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_Team1Name.TextChanged += new System.EventHandler(this.txt_Team1Name_TextChanged);
+            // 
             // stackTimer1
             // 
-            this.stackTimer1.Interval = 1000;
+            this.stackTimer1.Interval = 1;
             this.stackTimer1.Tick += new System.EventHandler(this.stackTimer_Tick);
             // 
             // stackTimer2
             // 
             this.stackTimer2.Interval = 1000;
             this.stackTimer2.Tick += new System.EventHandler(this.stackTimer2_Tick);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.btn_UpdateFontSize);
-            this.groupBox1.Controls.Add(this.numericUpDown1);
-            this.groupBox1.Font = new System.Drawing.Font("ITC Avant Garde Std Md", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(1229, 560);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(199, 75);
-            this.groupBox1.TabIndex = 46;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Font Size";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.numericUpDown1.Font = new System.Drawing.Font("ITC Avant Garde Std Cn", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
-            this.numericUpDown1.Location = new System.Drawing.Point(11, 30);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
-            99,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(49, 28);
-            this.numericUpDown1.TabIndex = 0;
-            this.numericUpDown1.Value = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            // 
-            // btn_UpdateFontSize
-            // 
-            this.btn_UpdateFontSize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(50)))), ((int)(((byte)(67)))));
-            this.btn_UpdateFontSize.FlatAppearance.BorderSize = 0;
-            this.btn_UpdateFontSize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(47)))), ((int)(((byte)(19)))));
-            this.btn_UpdateFontSize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_UpdateFontSize.Font = new System.Drawing.Font("ITC Avant Garde Std Cn", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_UpdateFontSize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(48)))), ((int)(((byte)(104)))));
-            this.btn_UpdateFontSize.Location = new System.Drawing.Point(73, 30);
-            this.btn_UpdateFontSize.Name = "btn_UpdateFontSize";
-            this.btn_UpdateFontSize.Size = new System.Drawing.Size(114, 29);
-            this.btn_UpdateFontSize.TabIndex = 49;
-            this.btn_UpdateFontSize.Text = "Update";
-            this.btn_UpdateFontSize.UseVisualStyleBackColor = false;
-            this.btn_UpdateFontSize.Click += new System.EventHandler(this.btn_UpdateFontSize_Click);
             // 
             // Form1
             // 
@@ -903,17 +886,12 @@
             this.Text = "App";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel10.ResumeLayout(false);
-            this.panel10.PerformLayout();
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -939,9 +917,6 @@
         private System.Windows.Forms.Button btn_TopTeam2Timeout;
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.Button button15;
-        private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.TextBox txt_Team2Name;
-        private System.Windows.Forms.TextBox txt_Team1Name;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btn_Reset;
         private System.Windows.Forms.Button btn_DecMin;
@@ -968,15 +943,17 @@
         private System.Windows.Forms.Panel pnl_Team1Color;
         private System.Windows.Forms.Panel pnl_Team2Color;
         private System.Windows.Forms.FlowLayoutPanel displayTeam1Stack;
-        private System.Windows.Forms.Timer stackTimer1;
         private System.Windows.Forms.Button btn_BottomTeam2Timeout;
         private System.Windows.Forms.FlowLayoutPanel controlTeam1Stack;
         private System.Windows.Forms.FlowLayoutPanel displayTeam2Stack;
         private System.Windows.Forms.FlowLayoutPanel controlTeam2Stack;
         private System.Windows.Forms.Timer stackTimer2;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btn_UpdateFontSize;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Button btn_UpdateFont;
+        private System.Windows.Forms.Label lab_Team2Name;
+        private System.Windows.Forms.Label lab_Team1Name;
+        private System.Windows.Forms.TextBox txt_team2Name;
+        private System.Windows.Forms.TextBox txt_Team1Name;
+        private System.Windows.Forms.Timer stackTimer1;
     }
 }
 

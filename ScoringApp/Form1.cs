@@ -42,7 +42,7 @@ namespace ScoringApp
 
         public void UpdateGoal()
         {
-            lab_Goal.Text = Team1Goal + " : " + Team2Goal;
+                lab_Goal.Text = Team1Goal + " : " + Team2Goal;
         }
         public Form1()
         {
@@ -86,8 +86,8 @@ namespace ScoringApp
 
         private void btn_Team1Inc_Click(object sender, EventArgs e)
         {
-            UpdateGoal();
             Team1Goal++;
+            UpdateGoal();
 
         }
         #endregion;
@@ -95,15 +95,31 @@ namespace ScoringApp
 
         private void btn_TopTeam1Timeout_Click(object sender, EventArgs e)
         {
-            btn_BottomTeam1Timeout.Visible = true;
-            team1Timeout = true;
+            if (team1Timeout == false)
+            {
+                btn_BottomTeam1Timeout.Visible = true;
+                team1Timeout = true;
+            }
+            else
+            {
+                btn_BottomTeam1Timeout.Visible = false;
+                team1Timeout = false;
+            }
             CheckTimeout();
         }
 
         private void btn_TopTeam2Timeout_Click(object sender, EventArgs e)
         {
-            btn_BottomTeam2Timeout.Visible = true;
-            team2Timeout = true;
+            if (team2Timeout == false)
+            {
+                btn_BottomTeam2Timeout.Visible = true;
+                team2Timeout = true;
+            }
+            else
+            {
+                btn_BottomTeam2Timeout.Visible = false;
+                team2Timeout = false;
+            }
             CheckTimeout();
 
         }
@@ -358,15 +374,32 @@ namespace ScoringApp
 
         private void btn_Team1LeeresTOR_Click(object sender, EventArgs e)
         {
-            btn_BottomTeam1Timeout.Visible = true;
-            team1Timeout = true;
+
+            if (team1Timeout == false)
+            {
+                btn_BottomTeam1Timeout.Visible = true;
+                team1Timeout = true;
+            }
+            else
+            {
+                btn_BottomTeam1Timeout.Visible = false;
+                team1Timeout = false;
+            }
             CheckTimeout();
         }
 
         private void btn_Team2LeeresTOR_Click(object sender, EventArgs e)
         {
-            btn_BottomTeam2Timeout.Visible = true;
-            team2Timeout = true;
+            if (team2Timeout == false)
+            {
+                btn_BottomTeam2Timeout.Visible = true;
+                team2Timeout = true;
+            }
+            else
+            {
+                btn_BottomTeam2Timeout.Visible = false;
+                team2Timeout = false;
+            }
             CheckTimeout();
         }
 
@@ -436,7 +469,32 @@ namespace ScoringApp
                 else if (timerRow.sec == 0 && timerRow.min == 0)
                 {
                     //displayTeam1Stack.Controls.Remove(timerRow.label);
+                    string tag = timerRow.label.Tag.ToString();
+                    //controlTeam1Stack.Controls.Remove((Label)sender);
+                    foreach (Control control in displayTeam1Stack.Controls)
+                    {
+                        if (tag == control.Tag.ToString())
+                        {
+                            displayTeam1Stack.Controls.Remove(control);
+                            break;
+                        }
+                    }
+                    foreach (Control control in controlTeam1Stack.Controls)
+                    {
+                        if (tag == control.Tag.ToString())
+                        {
+                            controlTeam1Stack.Controls.Remove(control);
+                            break;
+                        }
+                    }
+                    if (controlTeam1Stack.Controls.Count <= 0)
+                    {
+                        stackTimer1.Stop();
+                    // 
+                    }
+
                 }
+                timerTable1.Clear();
                 timerRow.label.Text = timerRow.min.ToString("#00") + " : " + timerRow.sec.ToString("#00");
                 foreach (Control control in displayTeam1Stack.Controls)
                 {
@@ -500,9 +558,26 @@ namespace ScoringApp
 
         private void btn_UpdateFontSize_Click(object sender, EventArgs e)
         {
-            int size = Convert.ToInt32(numericUpDown1.Value);
-            txt_Team1Name.Font = new Font(txt_Team1Name.Font.FontFamily, size);
-            txt_Team2Name.Font = new Font(txt_Team1Name.Font.FontFamily, size);
+            FontDialog fontDialog = new FontDialog();
+            if (fontDialog.ShowDialog() == DialogResult.OK)
+            {
+                lab_Team1Name.Font = fontDialog.Font;
+                lab_Team2Name.Font = fontDialog.Font;
+            }
+            //int size = Convert.ToInt32(numericUpDown1.Value);
+            //txt_Team1Name.Font = new Font(txt_Team1Name.Font.FontFamily, size);
+            //txt_Team2Name.Font = new Font(txt_Team1Name.Font.FontFamily, size);
+        }
+
+        private void txt_Team1Name_TextChanged(object sender, EventArgs e)
+        {
+            lab_Team1Name.Text = txt_Team1Name.Text;
+        }
+
+        private void txt_team2Name_TextChanged(object sender, EventArgs e)
+        {
+            lab_Team2Name.Text = txt_team2Name.Text;
+
         }
 
         private void btn_StartWatchFromZero_Click(object sender, EventArgs e)
@@ -531,7 +606,6 @@ namespace ScoringApp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            numericUpDown1.Value = Convert.ToDecimal(txt_Team1Name.Font.Size);
      
         }
 
